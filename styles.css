@@ -10,7 +10,7 @@ header {
     border-bottom: solid rgb(#0F4C5C) 2px; /*BORDA BOTAO*/
     padding: 20px;
     font-size: 32px;
-    color: rgb(#0F4C5C); /*LOGO*/
+    color: rgb(#0F4C5C); 
     display: flex;
     align-items: center;
     gap: 20px; /* Espaço entre a logo e o texto */
