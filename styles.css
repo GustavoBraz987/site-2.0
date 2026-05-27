@@ -10,7 +10,7 @@ header {
     border-bottom: solid rgb(243, 144, 78) 2px;
     padding: 20px;
     font-size: 32px;
-    color: rgb(243, 144, 78);
+    color: rgb(0, 0, 0);
     display: flex;
     align-items: center;
     gap: 20px; /* Espaço entre a logo e o texto */
@@ -18,7 +18,7 @@ header {
 
 
 .chamada {
-    background: rgb(68, 155, 236);
+    background: rgb(#F7F9F9);
     padding-bottom: 80px;
     padding-top: 80px;
     display: flex;
