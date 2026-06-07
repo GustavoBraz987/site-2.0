@@ -27,9 +27,7 @@ body {
 }
 
 
-/* -----------------------------------------
-   MENU DE NAVEGAÇÃO
------------------------------------------ */
+/* MENU DE NAVEGAÇÃO */
 
 /* O menu fica fixo no topo da tela, mesmo ao rolar a página */
 nav {
@@ -101,9 +99,7 @@ nav {
 .nav-links a:hover { color: var(--amarelo); }
 
 
-/* -----------------------------------------
-   SEÇÃO INICIAL (HERO)
------------------------------------------ */
+/* SEÇÃO INICIAL (HERO) */
 
 /* A primeira tela ocupa a altura toda da janela */
 .hero {
@@ -224,9 +220,7 @@ nav {
 .btn-outline:hover { border-color: var(--amarelo); color: var(--amarelo); }
 
 
-/* -----------------------------------------
-   VISUAL DO LADO DIREITO DO HERO
------------------------------------------ */
+/* VISUAL DO LADO DIREITO DO HERO */
 
 /* Coluna da direita onde fica o visual decorativo */
 .hero-visual {
@@ -313,9 +307,7 @@ nav {
 }
 
 
-/* -----------------------------------------
-   ESTILO GERAL DE TODAS AS SEÇÕES
------------------------------------------ */
+/* ESTILO GERAL DE TODAS AS SEÇÕES */
 
 /* Espaçamento interno de cada seção */
 section { padding: 6rem 5rem; }
@@ -350,9 +342,7 @@ section { padding: 6rem 5rem; }
 }
 
 
-/* -----------------------------------------
-   SEÇÃO CONCEITO
------------------------------------------ */
+/* SEÇÃO CONCEITO */
 
 /* Duas colunas lado a lado */
 #conceito {
@@ -395,9 +385,7 @@ section { padding: 6rem 5rem; }
 .card-text  { font-size: 0.9rem; color: #4a6b4d; line-height: 1.65; }
 
 
-/* -----------------------------------------
-   SEÇÃO TIPOS DE BIOENERGIA
------------------------------------------ */
+/* SEÇÃO TIPOS DE BIOENERGIA */
 
 /* Fundo verde escuro nessa seção */
 #tipos { background: var(--verde-escuro); color: var(--branco); }
@@ -466,9 +454,7 @@ section { padding: 6rem 5rem; }
 }
 
 
-/* -----------------------------------------
-   SEÇÃO IMPACTO
------------------------------------------ */
+/* SEÇÃO IMPACTO */
 
 #impacto { background: var(--branco); }
 
@@ -527,9 +513,7 @@ section { padding: 6rem 5rem; }
 .ben-text  { font-size: 0.87rem; color: #5a7a5d; line-height: 1.6; }
 
 
-/* -----------------------------------------
-   SEÇÃO INOVAÇÕES
------------------------------------------ */
+/* SEÇÃO INOVAÇÕES */
 
 /* Fundo verde bem escuro nessa seção */
 #inovacoes {
@@ -581,9 +565,7 @@ section { padding: 6rem 5rem; }
 }
 
 
-/* -----------------------------------------
-   SEÇÃO QUIZ
------------------------------------------ */
+/* SEÇÃO QUIZ */
 
 #quiz { background: var(--creme); }
 
@@ -732,9 +714,7 @@ section { padding: 6rem 5rem; }
 .sabia-text strong { color: var(--verde-escuro); }
 
 
-/* -----------------------------------------
-   SEÇÃO FONTES
------------------------------------------ */
+/* SEÇÃO FONTES */
 
 #fontes {
   background: var(--verde-escuro);
@@ -759,9 +739,7 @@ section { padding: 6rem 5rem; }
 }
 
 
-/* -----------------------------------------
-   ANIMAÇÕES
------------------------------------------ */
+/* ANIMAÇÕES */
 
 /* Estado inicial dos elementos antes de aparecerem */
 .aparecer {
@@ -779,7 +757,7 @@ section { padding: 6rem 5rem; }
 /* Animação do hero vindo de cima para baixo */
 @keyframes aparecer {
   from { opacity: 0; transform: translateY(-16px); }
-  to   { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Animação do visual do hero vindo da direita */
