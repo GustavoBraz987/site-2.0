@@ -1,6 +1,4 @@
-/* =============================================
-   CORES DO SITE — mude aqui para trocar o visual
-   ============================================= */
+/* CORES DO SITE — mude aqui para trocar o visual */
 :root {
   --verde-escuro: #1a3a1f;   /* verde bem escuro, fundo do menu */
   --verde-medio: #2d6a35;    /* verde médio, textos secundários */
@@ -29,9 +27,7 @@ body {
 }
 
 
-/* =============================================
-   MENU DE NAVEGAÇÃO (barra do topo)
-   ============================================= */
+/* MENU DE NAVEGAÇÃO (barra do topo) */
 nav {
   position: fixed;         /* fica fixo no topo mesmo ao rolar a página */
   top: 0; left: 0; right: 0;
@@ -52,9 +48,7 @@ nav {
   gap: 0.75rem;  /* espaço entre a foto e o nome */
 }
 
-/* -----------------------------------------------
-   FOTO DA LOGO — veja as instruções no HTML
-   ----------------------------------------------- */
+/* FOTO DA LOGO — veja as instruções no HTML */
 .logo-foto {
   width: 44px;
   height: 44px;
@@ -97,9 +91,7 @@ nav {
 .nav-links a:hover { color: var(--amarelo); }
 
 
-/* =============================================
-   SEÇÃO HERO — a tela inicial grande
-   ============================================= */
+/* SEÇÃO HERO — a tela inicial grande */
 .hero {
   min-height: 100vh;  /* ocupa a tela inteira de altura */
   background: var(--verde-escuro);
@@ -214,9 +206,7 @@ nav {
 .btn-outline:hover { border-color: var(--amarelo); color: var(--amarelo); }
 
 
-/* -----------------------------------------------
-   VISUAL DO HERO (lado direito da tela inicial)
-   ----------------------------------------------- */
+/* VISUAL DO HERO (lado direito da tela inicial) */
 .hero-visual {
   display: flex;
   justify-content: center;
@@ -297,9 +287,7 @@ nav {
 }
 
 
-/* =============================================
-   ESTILO GERAL DAS SEÇÕES
-   ============================================= */
+/* ESTILO GERAL DAS SEÇÕES */
 section { padding: 6rem 5rem; }
 
 /* Etiquetinha cinza acima do título (ex: "// O que é") */
@@ -332,9 +320,7 @@ section { padding: 6rem 5rem; }
 }
 
 
-/* =============================================
-   SEÇÃO CONCEITO
-   ============================================= */
+/* SEÇÃO CONCEITO */
 #conceito {
   background: var(--creme);
   display: grid;
@@ -370,9 +356,7 @@ section { padding: 6rem 5rem; }
 .card-text  { font-size: 0.9rem; color: #4a6b4d; line-height: 1.65; }
 
 
-/* =============================================
-   SEÇÃO TIPOS DE BIOENERGIA
-   ============================================= */
+/* SEÇÃO TIPOS DE BIOENERGIA */
 #tipos { background: var(--verde-escuro); color: var(--branco); }
 #tipos .section-title { color: var(--branco); }
 #tipos .section-tag   { color: var(--verde-claro); }
@@ -434,9 +418,7 @@ section { padding: 6rem 5rem; }
 }
 
 
-/* =============================================
-   SEÇÃO IMPACTO
-   ============================================= */
+/* SEÇÃO IMPACTO */
 #impacto { background: var(--branco); }
 
 /* Linha com os 3 números grandes */
@@ -486,9 +468,7 @@ section { padding: 6rem 5rem; }
 .ben-text  { font-size: 0.87rem; color: #5a7a5d; line-height: 1.6; }
 
 
-/* =============================================
-   SEÇÃO INOVAÇÕES
-   ============================================= */
+/* SEÇÃO INOVAÇÕES */
 #inovacoes {
   background: linear-gradient(135deg, #1a3a1f 0%, #0d2210 100%);
   color: var(--branco);
@@ -534,9 +514,7 @@ section { padding: 6rem 5rem; }
 }
 
 
-/* =============================================
-   SEÇÃO QUIZ
-   ============================================= */
+/* QUIZ */
 #quiz { background: var(--creme); }
 
 /* Caixa branca central do quiz */
@@ -656,9 +634,7 @@ section { padding: 6rem 5rem; }
 .sabia-text strong { color: var(--verde-escuro); }
 
 
-/* =============================================
-   SEÇÃO FONTES
-   ============================================= */
+/* SEÇÃO FONTES */
 #fontes {
   background: var(--verde-escuro);
   color: var(--branco);
@@ -677,9 +653,7 @@ section { padding: 6rem 5rem; }
 }
 
 
-/* =============================================
-   ANIMAÇÕES — as coisas aparecem ao rolar a página
-   ============================================= */
+/* ANIMAÇÕES — as coisas aparecem ao rolar a página*/
 
 /* Estado inicial: invisível e um pouco abaixo do lugar certo */
 .aparecer {
