@@ -1,0 +1,706 @@
+/* =============================================
+   CORES DO SITE — mude aqui para trocar o visual
+   ============================================= */
+:root {
+  --verde-escuro: #1a3a1f;   /* verde bem escuro, fundo do menu */
+  --verde-medio: #2d6a35;    /* verde médio, textos secundários */
+  --verde-vivo: #4caf50;     /* verde vibrante, destaques */
+  --verde-claro: #a8d5a2;    /* verde clarinho, textos no fundo escuro */
+  --amarelo: #f5c518;        /* amarelo, cor de destaque principal */
+  --laranja: #e8821a;        /* laranja, detalhes de energia */
+  --terra: #6b3f1a;          /* marrom terra, detalhes biomassa */
+  --creme: #f5f0e8;          /* bege clarinho, fundo das seções alternadas */
+  --branco: #fdfdf8;         /* quase branco, fundo geral */
+  --texto: #1a2b1c;          /* verde bem escuro, cor do texto principal */
+}
+
+/* Zera todas as margens e bordas padrão do navegador */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Faz o scroll da página ser suave ao clicar nos links do menu */
+html { scroll-behavior: smooth; }
+
+/* Estilo geral do corpo da página */
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--branco);
+  color: var(--texto);
+  overflow-x: hidden; /* impede barra de rolagem horizontal feia */
+}
+
+
+/* =============================================
+   MENU DE NAVEGAÇÃO (barra do topo)
+   ============================================= */
+nav {
+  position: fixed;         /* fica fixo no topo mesmo ao rolar a página */
+  top: 0; left: 0; right: 0;
+  z-index: 100;            /* fica na frente de tudo */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+  background: rgba(26, 58, 31, 0.97);  /* verde escuro quase opaco */
+  backdrop-filter: blur(8px);           /* efeito de vidro fosco */
+  border-bottom: 2px solid var(--amarelo); /* linha amarela embaixo */
+}
+
+/* Área da logo: foto + nome do autor */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;  /* espaço entre a foto e o nome */
+}
+
+/* -----------------------------------------------
+   FOTO DA LOGO — veja as instruções no HTML
+   ----------------------------------------------- */
+.logo-foto {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;               /* deixa a imagem redonda */
+  object-fit: cover;                /* preenche o círculo sem distorcer */
+  border: 2px solid var(--amarelo); /* borda amarela em volta */
+}
+
+/* Texto com o nome do autor ao lado da foto */
+.logo-nome {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--amarelo);
+  line-height: 1.2;
+}
+.logo-nome span {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--verde-claro);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+}
+
+/* Links do menu: Conceito, Tipos, etc. */
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;   /* remove os pontinhos de lista */
+}
+.nav-links a {
+  color: var(--verde-claro);
+  text-decoration: none;  /* remove sublinhado */
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.3s;  /* muda de cor suavemente ao passar o mouse */
+}
+.nav-links a:hover { color: var(--amarelo); }
+
+
+/* =============================================
+   SEÇÃO HERO — a tela inicial grande
+   ============================================= */
+.hero {
+  min-height: 100vh;  /* ocupa a tela inteira de altura */
+  background: var(--verde-escuro);
+  display: grid;
+  grid-template-columns: 55% 45%;  /* texto na esquerda, visual na direita */
+  align-items: center;
+  padding: 7rem 5rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brilho decorativo de fundo (não é imagem, é só CSS mesmo) */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 75% 35%, rgba(76,175,80,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 80%, rgba(232,130,26,0.10) 0%, transparent 45%);
+  pointer-events: none; /* não atrapalha cliques */
+}
+
+/* Coluna com o texto do hero */
+.hero-text { position: relative; z-index: 2; }
+
+/* Etiquetinha amarela: "Energia Renovável · Brasil · 2026" */
+.hero-tag {
+  display: inline-block;
+  background: var(--amarelo);
+  color: var(--verde-escuro);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.35rem 1rem;
+  border-radius: 3px;
+  margin-bottom: 1.5rem;
+  /* animação simples: aparece descendo de cima */
+  animation: aparecer 0.8s ease both;
+}
+
+/* Título principal grande */
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: var(--branco);
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+  animation: aparecer 0.9s ease 0.1s both;  /* aparece um pouco depois */
+}
+/* A palavra em destaque verde */
+.hero h1 em {
+  color: var(--verde-vivo);
+  font-style: normal;
+  display: block;
+}
+
+/* Parágrafo de descrição embaixo do título */
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--verde-claro);
+  line-height: 1.8;
+  max-width: 500px;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+  animation: aparecer 1s ease 0.2s both;
+}
+
+/* Botões do hero */
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  animation: aparecer 1s ease 0.3s both;
+}
+
+/* Botão cheio (amarelo) */
+.btn-primary {
+  background: var(--amarelo);
+  color: var(--verde-escuro);
+  padding: 0.9rem 2.2rem;
+  border: none;
+  border-radius: 4px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);  /* sobe um pouquinho ao passar o mouse */
+  box-shadow: 0 8px 24px rgba(245,197,24,0.4);
+}
+
+/* Botão com borda (transparente) */
+.btn-outline {
+  background: transparent;
+  color: var(--verde-claro);
+  padding: 0.9rem 2.2rem;
+  border: 1.5px solid var(--verde-claro);
+  border-radius: 4px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+}
+.btn-outline:hover { border-color: var(--amarelo); color: var(--amarelo); }
+
+
+/* -----------------------------------------------
+   VISUAL DO HERO (lado direito da tela inicial)
+   ----------------------------------------------- */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  animation: aparecer-direita 1s ease 0.3s both;
+}
+
+/* Caixa que contém o visual todo */
+.bio-visual-box {
+  position: relative;
+  width: 380px;
+  height: 380px;
+}
+
+/* Círculo grande de fundo com brilho verde */
+.bio-circulo {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, rgba(76,175,80,0.2), transparent 70%);
+  border: 1px solid rgba(76,175,80,0.2);
+}
+
+/* Círculo do meio com o emoji 🌱 */
+.bio-centro {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px; height: 120px;
+  background: linear-gradient(135deg, var(--verde-vivo), var(--verde-escuro));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.2rem;
+  box-shadow: 0 0 50px rgba(76,175,80,0.5);
+}
+
+/* Os 4 quadradinhos ao redor do centro (etanol, biogás, etc.) */
+.bio-card-mini {
+  position: absolute;
+  width: 90px; height: 90px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  color: var(--verde-claro);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  transition: transform 0.3s;
+}
+.bio-card-mini:hover { transform: scale(1.08); }
+.bio-card-mini .mini-emoji { font-size: 2rem; }
+
+/* Posição de cada quadradinho nos cantos */
+.bio-card-mini:nth-child(2) { top: 20px; left: 20px; }
+.bio-card-mini:nth-child(3) { top: 20px; right: 20px; }
+.bio-card-mini:nth-child(4) { bottom: 20px; left: 20px; }
+.bio-card-mini:nth-child(5) { bottom: 20px; right: 20px; }
+
+/* Slogan embaixo do visual */
+.bio-slogan {
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: rgba(168,213,162,0.6);
+  letter-spacing: 0.1em;
+}
+
+
+/* =============================================
+   ESTILO GERAL DAS SEÇÕES
+   ============================================= */
+section { padding: 6rem 5rem; }
+
+/* Etiquetinha cinza acima do título (ex: "// O que é") */
+.section-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--verde-medio);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+}
+
+/* Título de cada seção */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--verde-escuro);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+/* Parágrafo de descrição da seção */
+.section-desc {
+  font-size: 1rem;
+  color: #3a5c3d;
+  line-height: 1.8;
+  max-width: 640px;
+  font-weight: 300;
+}
+
+
+/* =============================================
+   SEÇÃO CONCEITO
+   ============================================= */
+#conceito {
+  background: var(--creme);
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* duas colunas iguais */
+  gap: 5rem;
+  align-items: center;
+}
+
+/* Coluna com os cards de conceito */
+.conceito-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Cada card de conceito (com borda colorida na esquerda) */
+.conceito-card {
+  background: var(--branco);
+  border-left: 4px solid var(--verde-vivo); /* risca colorida à esquerda */
+  border-radius: 0 8px 8px 0;
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  transition: transform 0.25s;
+}
+.conceito-card:hover { transform: translateX(6px); } /* desliza pro lado ao passar o mouse */
+.conceito-card:nth-child(2) { border-color: var(--amarelo); }
+.conceito-card:nth-child(3) { border-color: var(--laranja); }
+.card-icon  { font-size: 2rem; flex-shrink: 0; }
+.card-title { font-weight: 700; color: var(--verde-escuro); margin-bottom: 0.3rem; font-size: 1rem; }
+.card-text  { font-size: 0.9rem; color: #4a6b4d; line-height: 1.65; }
+
+
+/* =============================================
+   SEÇÃO TIPOS DE BIOENERGIA
+   ============================================= */
+#tipos { background: var(--verde-escuro); color: var(--branco); }
+#tipos .section-title { color: var(--branco); }
+#tipos .section-tag   { color: var(--verde-claro); }
+#tipos .section-desc  { color: rgba(255,255,255,0.65); }
+
+/* Grade dos 4 cards de tipo — ficam lado a lado no PC */
+.tipos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+/* Cada card de tipo */
+.tipo-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+/* Faixinha colorida no topo de cada card */
+.tipo-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.tipo-card.etanol::before   { background: linear-gradient(90deg, var(--verde-vivo), var(--amarelo)); }
+.tipo-card.biodiesel::before{ background: linear-gradient(90deg, var(--amarelo), var(--laranja)); }
+.tipo-card.biogas::before   { background: linear-gradient(90deg, var(--laranja), #c0392b); }
+.tipo-card.biomassa::before { background: linear-gradient(90deg, var(--terra), var(--laranja)); }
+
+.tipo-card:hover { background: rgba(255,255,255,0.09); transform: translateY(-5px); }
+.tipo-emoji { font-size: 2.5rem; margin-bottom: 1rem; }
+.tipo-nome {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  color: var(--branco);
+}
+.tipo-sub {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--verde-claro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+.tipo-desc    { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+.tipo-detalhe {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.82rem;
+  color: var(--verde-claro);
+  line-height: 1.5;
+}
+
+
+/* =============================================
+   SEÇÃO IMPACTO
+   ============================================= */
+#impacto { background: var(--branco); }
+
+/* Linha com os 3 números grandes */
+.impacto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.impacto-item {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  background: var(--creme);
+  border: 1px solid rgba(76,175,80,0.12);
+  transition: transform 0.3s;
+}
+.impacto-item:hover { transform: translateY(-5px); }
+.impacto-numero {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--verde-medio);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.impacto-label { font-weight: 700; color: var(--verde-escuro); margin-bottom: 0.4rem; font-size: 1rem; }
+.impacto-desc  { font-size: 0.87rem; color: #5a7a5d; line-height: 1.6; }
+
+/* Grade dos 4 benefícios com ícone */
+.beneficios-lista {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+.beneficio {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.2rem;
+  background: var(--creme);
+  border-radius: 8px;
+}
+.ben-icon  { font-size: 1.8rem; flex-shrink: 0; }
+.ben-title { font-weight: 700; color: var(--verde-escuro); font-size: 0.93rem; margin-bottom: 0.2rem; }
+.ben-text  { font-size: 0.87rem; color: #5a7a5d; line-height: 1.6; }
+
+
+/* =============================================
+   SEÇÃO INOVAÇÕES
+   ============================================= */
+#inovacoes {
+  background: linear-gradient(135deg, #1a3a1f 0%, #0d2210 100%);
+  color: var(--branco);
+}
+#inovacoes .section-title { color: var(--branco); }
+#inovacoes .section-tag   { color: var(--amarelo); }
+
+/* Grade 2x2 dos cards de inovação */
+.inov-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.inov-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(76,175,80,0.2);
+  border-radius: 12px;
+  padding: 2rem;
+}
+.inov-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--amarelo);
+  margin-bottom: 0.9rem;
+}
+.inov-card p { font-size: 0.93rem; color: rgba(255,255,255,0.72); line-height: 1.75; }
+
+/* Etiqueta "Destaque Paraná" */
+.parana-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--verde-vivo);
+  color: var(--verde-escuro);
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  margin-bottom: 0.7rem;
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+}
+
+
+/* =============================================
+   SEÇÃO QUIZ
+   ============================================= */
+#quiz { background: var(--creme); }
+
+/* Caixa branca central do quiz */
+.quiz-container {
+  max-width: 780px;
+  margin: 3rem auto 0;
+  background: var(--branco);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  border: 1px solid rgba(76,175,80,0.15);
+}
+
+/* Barra de progresso (a barrinha verde que avança) */
+.quiz-progresso { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+.quiz-bar-bg {
+  flex: 1; height: 6px;
+  background: #e0e0e0; border-radius: 3px; overflow: hidden;
+}
+.quiz-bar {
+  height: 100%;
+  background: var(--verde-vivo);
+  border-radius: 3px;
+  transition: width 0.5s ease;  /* cresce suavemente */
+}
+.quiz-count { font-family: 'Space Mono', monospace; font-size: 0.78rem; color: #888; white-space: nowrap; }
+
+/* Texto da pergunta */
+.quiz-pergunta {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--verde-escuro);
+  margin-bottom: 1.5rem;
+  line-height: 1.45;
+  min-height: 3rem;
+}
+
+/* Lista de opções */
+.quiz-opcoes { display: flex; flex-direction: column; gap: 0.75rem; }
+
+/* Cada botão de opção */
+.quiz-opcao {
+  padding: 0.95rem 1.3rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.93rem;
+  transition: all 0.2s;
+  text-align: left;
+  background: var(--branco);
+  color: var(--texto);
+  font-family: 'DM Sans', sans-serif;
+}
+.quiz-opcao:hover:not(:disabled) { border-color: var(--verde-vivo); background: rgba(76,175,80,0.05); }
+.quiz-opcao.correta { border-color: var(--verde-vivo); background: rgba(76,175,80,0.12); color: var(--verde-escuro); font-weight: 600; }
+.quiz-opcao.errada  { border-color: #e53935; background: rgba(229,57,53,0.08); color: #c0392b; }
+
+/* Caixa de feedback — aparece após o usuário responder */
+.quiz-feedback {
+  margin-top: 1.2rem;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  display: none; /* começa escondida */
+}
+.quiz-feedback.show { display: block; } /* aparece quando a classe "show" é adicionada */
+.quiz-feedback.ok  { background: rgba(76,175,80,0.1); color: var(--verde-escuro); border-left: 4px solid var(--verde-vivo); }
+.quiz-feedback.nao { background: rgba(229,57,53,0.08); color: #8b0000; border-left: 4px solid #e53935; }
+
+/* Botões de navegação do quiz */
+.quiz-nav { margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 1rem; }
+.btn-quiz {
+  padding: 0.75rem 1.8rem;
+  border: none; border-radius: 6px;
+  font-weight: 700; font-size: 0.9rem;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s;
+  display: none; /* começa escondido */
+}
+.btn-quiz.show  { display: inline-block; } /* aparece quando necessário */
+#btn-proximo    { background: var(--verde-vivo); color: white; }
+#btn-proximo:hover { background: var(--verde-medio); }
+#btn-reiniciar  { background: var(--amarelo); color: var(--verde-escuro); }
+
+/* Tela de resultado final do quiz */
+.quiz-resultado { text-align: center; display: none; padding: 1.5rem; }
+.quiz-resultado.show { display: block; }
+.resultado-emoji { font-size: 4rem; margin-bottom: 1rem; }
+.resultado-texto { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--verde-escuro); margin-bottom: 0.5rem; }
+.resultado-pts   { font-size: 1.05rem; color: var(--verde-medio); margin-bottom: 1.5rem; }
+
+/* Cards "Você Sabia?" */
+.sabia-section { margin-top: 4rem; }
+.sabia-title   { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--verde-escuro); margin-bottom: 1.5rem; text-align: center; }
+
+/* Grade 2 colunas para os cards de curiosidade */
+.sabia-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.sabia-card {
+  display: flex; gap: 1.2rem; align-items: flex-start;
+  padding: 1.2rem 1.5rem;
+  background: var(--branco);
+  border-radius: 10px;
+  border-left: 5px solid var(--verde-vivo);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.sabia-card:nth-child(even) { border-color: var(--amarelo); }
+.sabia-icon { font-size: 1.8rem; flex-shrink: 0; }
+.sabia-text { font-size: 0.9rem; color: #3a5c3d; line-height: 1.65; }
+.sabia-text strong { color: var(--verde-escuro); }
+
+
+/* =============================================
+   SEÇÃO FONTES
+   ============================================= */
+#fontes {
+  background: var(--verde-escuro);
+  color: var(--branco);
+  padding: 3.5rem 5rem;
+}
+#fontes .section-tag { color: var(--verde-claro); }
+.fontes-lista { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.5rem; }
+.fonte-badge {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 0.45rem 1rem;
+  border-radius: 20px;
+  font-size: 0.83rem;
+  color: var(--verde-claro);
+  font-family: 'Space Mono', monospace;
+}
+
+
+/* =============================================
+   ANIMAÇÕES — as coisas aparecem ao rolar a página
+   ============================================= */
+
+/* Estado inicial: invisível e um pouco abaixo do lugar certo */
+.aparecer {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+/* Quando o JavaScript adiciona a classe "visivel", o elemento aparece */
+.aparecer.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animação de entrada de cima pra baixo (usada no hero) */
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Animação de entrada da direita pra esquerda (usada no visual do hero) */
+@keyframes aparecer-direita {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
