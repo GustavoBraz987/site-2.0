@@ -2,61 +2,40 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <!-- Isso faz o site se adaptar ao tamanho da tela do computador -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bioenergia — O Campo Alimentando o Futuro</title>
 
-  <!-- Importa as fontes bonitas do Google (de graça!) -->
+  <!-- Importa as fontes do Google -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <!--
-    Aqui é onde linkamos o arquivo de estilos separado.
-    O styles.css precisa estar na mesma pasta que este index.html!
-  -->
+  <!-- Aqui carregamos o arquivo de estilos, ele precisa estar na mesma pasta -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 
-  <!-- ============================================================
-       MENU DE NAVEGAÇÃO
-       ============================================================ -->
+  <!-- MENU DE NAVEGAÇÃO -->
   <nav>
 
-    <!-- LOGO: foto + nome do autor -->
+    <!-- Logo com foto e nome do autor -->
     <div class="nav-logo">
 
-      <!--
-        ╔══════════════════════════════════════════════════════╗
-        ║  COMO COLOCAR SUA FOTO AQUI:                         ║
-        ║                                                      ║
-        ║  1. Salve sua foto na mesma pasta que este arquivo   ║
-        ║     Exemplo: coloque "minha-foto.jpg" aqui           ║
-        ║                                                      ║
-        ║  2. Troque "minha-foto.jpg" abaixo pelo nome         ║
-        ║     exato do seu arquivo de foto.                    ║
-        ║                                                      ║
-        ║  3. Se não quiser foto, apague a linha <img> toda.   ║
-        ╚══════════════════════════════════════════════════════╝
-      -->
+      <!-- Troque "minha-foto.jpg" pelo nome da sua foto, ela precisa estar na mesma pasta -->
       <img
         class="logo-foto"
         src="minha-foto.jpg"
         alt="Foto do autor"
         onerror="this.style.display='none'"
       >
-      <!-- onerror: se a foto não for encontrada, ela some sem dar erro feio -->
 
-      <!--
-        TROQUE "Seu Nome Aqui" pelo seu nome de verdade!
-      -->
+      <!-- Troque "Seu Nome Aqui" pelo seu nome de verdade -->
       <div class="logo-nome">
         Seu Nome Aqui
         <span>Projeto Agrinho 2026</span>
       </div>
     </div>
 
-    <!-- Links de navegação -->
+    <!-- Links para cada seção da página -->
     <ul class="nav-links">
       <li><a href="#conceito">O Conceito</a></li>
       <li><a href="#tipos">Tipos</a></li>
@@ -68,12 +47,10 @@
   </nav>
 
 
-  <!-- ============================================================
-       SEÇÃO HERO — tela inicial
-       ============================================================ -->
+  <!-- SEÇÃO INICIAL (HERO) -->
   <section class="hero" id="home">
 
-    <!-- Coluna da esquerda: texto -->
+    <!-- Texto do lado esquerdo -->
     <div class="hero-text">
       <div class="hero-tag">🌿 Energia Renovável · Brasil · 2026</div>
 
@@ -93,15 +70,17 @@
       </div>
     </div>
 
-    <!-- Coluna da direita: visual decorativo com 4 cards e círculo central -->
+    <!-- Visual decorativo do lado direito -->
     <div class="hero-visual">
       <div class="bio-visual-box">
+
+        <!-- Círculo de fundo -->
         <div class="bio-circulo"></div>
 
-        <!-- Círculo central com a planta -->
+        <!-- Círculo verde central com o emoji -->
         <div class="bio-centro">🌱</div>
 
-        <!-- 4 mini-cards nos cantos -->
+        <!-- Quatro quadradinhos nos cantos -->
         <div class="bio-card-mini">
           <div class="mini-emoji">🌾</div>
           ETANOL
@@ -126,12 +105,10 @@
   </section>
 
 
-  <!-- ============================================================
-       SEÇÃO CONCEITO — O que é bioenergia?
-       ============================================================ -->
+  <!-- SEÇÃO O QUE É BIOENERGIA -->
   <section id="conceito">
 
-    <!-- Texto explicativo à esquerda -->
+    <!-- Texto da esquerda -->
     <div class="aparecer">
       <div class="section-tag">// O que é</div>
       <h2 class="section-title">Bioenergia: transformando<br>resíduos em riqueza</h2>
@@ -142,7 +119,7 @@
       </p>
     </div>
 
-    <!-- 3 cards à direita -->
+    <!-- Três cards da direita -->
     <div class="conceito-cards aparecer">
       <div class="conceito-card">
         <div class="card-icon">♻️</div>
@@ -170,9 +147,7 @@
   </section>
 
 
-  <!-- ============================================================
-       SEÇÃO TIPOS — Os 4 tipos principais
-       ============================================================ -->
+  <!-- SEÇÃO TIPOS DE BIOENERGIA -->
   <section id="tipos">
 
     <div class="aparecer">
@@ -181,7 +156,7 @@
       <p class="section-desc">Do campo para o tanque de combustível, da granja para a tomada elétrica — conheça as quatro grandes fontes que movem o Brasil.</p>
     </div>
 
-    <!-- Grade com os 4 cards de tipo -->
+    <!-- Quatro cards lado a lado -->
     <div class="tipos-grid">
 
       <div class="tipo-card etanol aparecer">
@@ -220,9 +195,7 @@
   </section>
 
 
-  <!-- ============================================================
-       SEÇÃO IMPACTO — Números e benefícios
-       ============================================================ -->
+  <!-- SEÇÃO DE IMPACTO E BENEFÍCIOS -->
   <section id="impacto">
 
     <div class="aparecer">
@@ -231,7 +204,7 @@
       <p class="section-desc">Além de substituir combustíveis fósseis, a bioenergia gera empregos, fixa o trabalhador no campo e fortalece a economia regional.</p>
     </div>
 
-    <!-- 3 caixas com números grandes -->
+    <!-- Três números grandes -->
     <div class="impacto-grid aparecer">
       <div class="impacto-item">
         <div class="impacto-numero">73%</div>
@@ -250,7 +223,7 @@
       </div>
     </div>
 
-    <!-- 4 benefícios com ícone -->
+    <!-- Quatro benefícios com ícone -->
     <div class="beneficios-lista aparecer">
       <div class="beneficio">
         <div class="ben-icon">🌡️</div>
@@ -285,9 +258,7 @@
   </section>
 
 
-  <!-- ============================================================
-       SEÇÃO INOVAÇÕES — Tecnologias recentes (2026)
-       ============================================================ -->
+  <!-- SEÇÃO INOVAÇÕES 2026 -->
   <section id="inovacoes">
 
     <div class="aparecer">
@@ -296,7 +267,7 @@
       <p class="section-desc" style="color:rgba(255,255,255,0.65)">A bioenergia está em constante evolução. Veja as tecnologias que estão redefinindo o setor hoje.</p>
     </div>
 
-    <!-- 4 cards de inovação em grade 2x2 -->
+    <!-- Quatro cards em duas colunas -->
     <div class="inov-grid">
 
       <div class="inov-card aparecer">
@@ -324,9 +295,7 @@
   </section>
 
 
-  <!-- ============================================================
-       SEÇÃO QUIZ — Perguntas interativas
-       ============================================================ -->
+  <!-- SEÇÃO QUIZ -->
   <section id="quiz">
 
     <div class="aparecer" style="text-align:center">
@@ -335,13 +304,13 @@
       <p class="section-desc" style="margin:0 auto; text-align:center">5 perguntas para ver o quanto você aprendeu!</p>
     </div>
 
-    <!-- Caixa branca do quiz -->
+    <!-- Caixa branca com o quiz -->
     <div class="quiz-container aparecer">
 
-      <!-- Parte que aparece durante o quiz -->
+      <!-- Conteúdo do quiz, some quando termina -->
       <div id="quiz-conteudo">
 
-        <!-- Barra de progresso + contador de perguntas -->
+        <!-- Barra de progresso e contador -->
         <div class="quiz-progresso">
           <div class="quiz-bar-bg">
             <div class="quiz-bar" id="quiz-bar" style="width:20%"></div>
@@ -349,23 +318,23 @@
           <div class="quiz-count" id="quiz-count">1 / 5</div>
         </div>
 
-        <!-- Texto da pergunta (preenchido pelo JavaScript) -->
+        <!-- O texto da pergunta é colocado aqui pelo JavaScript -->
         <div class="quiz-pergunta" id="quiz-pergunta"></div>
 
-        <!-- Botões de opção (criados pelo JavaScript) -->
+        <!-- Os botões de opção são criados aqui pelo JavaScript -->
         <div class="quiz-opcoes" id="quiz-opcoes"></div>
 
-        <!-- Mensagem de certo/errado (aparece após clicar) -->
+        <!-- Mensagem de certo ou errado, aparece após responder -->
         <div class="quiz-feedback" id="quiz-feedback"></div>
 
-        <!-- Botões de navegar entre perguntas -->
+        <!-- Botões para avançar ou recomeçar -->
         <div class="quiz-nav">
           <button class="btn-quiz" id="btn-proximo"   onclick="proximaPergunta()">Próxima →</button>
           <button class="btn-quiz" id="btn-reiniciar" onclick="reiniciarQuiz()">Recomeçar</button>
         </div>
       </div>
 
-      <!-- Tela de resultado final (escondida até o quiz terminar) -->
+      <!-- Tela de resultado, aparece quando o quiz termina -->
       <div class="quiz-resultado" id="quiz-resultado">
         <div class="resultado-emoji" id="resultado-emoji"></div>
         <div class="resultado-texto" id="resultado-texto"></div>
@@ -375,7 +344,7 @@
 
     </div>
 
-    <!-- Curiosidades "Você Sabia?" -->
+    <!-- Curiosidades abaixo do quiz -->
     <div class="sabia-section aparecer">
       <h3 class="sabia-title">💡 Você Sabia?</h3>
       <div class="sabia-cards">
@@ -401,9 +370,7 @@
   </section>
 
 
-  <!-- ============================================================
-       SEÇÃO FONTES
-       ============================================================ -->
+  <!-- SEÇÃO DE FONTES -->
   <section id="fontes">
     <div class="section-tag">// Fontes confiáveis</div>
     <p style="color:rgba(255,255,255,0.75); font-size:0.93rem; margin-bottom:1rem;">
@@ -421,17 +388,10 @@
   </section>
 
 
-  <!-- ============================================================
-       JAVASCRIPT — a parte que faz o site "funcionar de verdade"
-       ============================================================ -->
+  <!-- JAVASCRIPT -->
   <script>
 
-    // ============================================================
-    // QUIZ — Perguntas, respostas e lógica
-    // ============================================================
-
-    // Aqui ficam todas as perguntas do quiz.
-    // Cada pergunta tem: o texto (p), as opções (ops), qual é a certa (certa) e a explicação (exp).
+    // Todas as perguntas, opções, resposta certa e explicação ficam aqui
     const perguntas = [
       {
         p: "O que é biomassa?",
@@ -441,13 +401,13 @@
           "Energia gerada pelo vento e pela água",
           "Um mineral encontrado em regiões tropicais"
         ],
-        certa: 0,  // a opção correta é a de índice 0 (a primeira)
+        certa: 0,
         exp: "✅ Correto! Biomassa é toda matéria orgânica de origem vegetal ou animal que pode ser transformada em energia — como bagaço de cana, esterco e resíduos agrícolas."
       },
       {
         p: "Qual é a principal matéria-prima do etanol brasileiro?",
         ops: ["Soja", "Cana-de-açúcar", "Milho", "Eucalipto"],
-        certa: 1,  // a segunda opção (índice 1) é a correta
+        certa: 1,
         exp: "✅ Exato! O etanol brasileiro é produzido principalmente a partir da cana-de-açúcar, tornando o Brasil o 2.º maior produtor mundial do biocombustível."
       },
       {
@@ -458,7 +418,7 @@
           "Etanol obtido da palha e do bagaço da cana, sem plantar mais",
           "Um tipo de gasolina com 2% de etanol na mistura"
         ],
-        certa: 2,  // a terceira opção (índice 2) é a correta
+        certa: 2,
         exp: "✅ Perfeito! O E2G aproveita a palha e o bagaço que antes eram descartados, produzindo mais combustível sem ampliar a área cultivada."
       },
       {
@@ -485,104 +445,101 @@
       }
     ];
 
-    // Variáveis de controle do quiz:
-    let perguntaAtual = 0;   // qual pergunta está sendo mostrada agora (começa na 0)
-    let pontos = 0;          // quantos acertos o usuário tem até agora
-    let jaRespondeu = false; // impede clicar em várias opções na mesma pergunta
+    // Controla qual pergunta está aparecendo e a pontuação do usuário
+    let perguntaAtual = 0;
+    let pontos = 0;
+    let jaRespondeu = false;
 
-    // Essa função monta e exibe a pergunta atual na tela
+    // Monta e exibe a pergunta atual na tela
     function carregarPergunta() {
       jaRespondeu = false;
 
-      // Esconde os botões de "próxima" e "recomeçar"
+      // Esconde os botões de navegar
       document.getElementById('btn-proximo').classList.remove('show');
       document.getElementById('btn-reiniciar').classList.remove('show');
 
-      // Limpa o feedback da pergunta anterior
+      // Apaga o feedback da pergunta anterior
       const feedback = document.getElementById('quiz-feedback');
       feedback.className = 'quiz-feedback';
       feedback.textContent = '';
 
-      // Pega os dados da pergunta atual do array
+      // Pega a pergunta atual
       const q = perguntas[perguntaAtual];
 
       // Coloca o texto da pergunta na tela
       document.getElementById('quiz-pergunta').textContent = q.p;
 
-      // Atualiza o contador "1 / 5", "2 / 5", etc.
+      // Atualiza o número da pergunta e a barra de progresso
       document.getElementById('quiz-count').textContent = `${perguntaAtual + 1} / ${perguntas.length}`;
-
-      // Avança a barra de progresso (cada pergunta vale uma parte do total)
       const porcentagem = ((perguntaAtual + 1) / perguntas.length) * 100;
       document.getElementById('quiz-bar').style.width = porcentagem + '%';
 
       // Cria os botões de opção dinamicamente
       const containerOpcoes = document.getElementById('quiz-opcoes');
-      containerOpcoes.innerHTML = ''; // limpa as opções antigas
+      containerOpcoes.innerHTML = '';
 
       q.ops.forEach(function(textoOpcao, indice) {
-        const botao = document.createElement('button');  // cria um botão
+        const botao = document.createElement('button');
         botao.className = 'quiz-opcao';
         botao.textContent = textoOpcao;
-        botao.onclick = function() { responder(indice, botao); }; // ao clicar, chama responder()
-        containerOpcoes.appendChild(botao); // adiciona o botão na tela
+        botao.onclick = function() { responder(indice, botao); };
+        containerOpcoes.appendChild(botao);
       });
     }
 
-    // Essa função é chamada quando o usuário clica em uma opção
+    // Chamada quando o usuário clica em uma opção
     function responder(indiceSelecionado, botaoClicado) {
 
-      // Se já respondeu essa pergunta, não faz nada
+      // Impede clicar de novo na mesma pergunta
       if (jaRespondeu) return;
       jaRespondeu = true;
 
       const q = perguntas[perguntaAtual];
 
-      // Desabilita todos os botões (não deixa mais clicar)
+      // Desabilita todos os botões
       const todosBotoes = document.querySelectorAll('.quiz-opcao');
       todosBotoes.forEach(function(b) { b.disabled = true; });
 
       const feedback = document.getElementById('quiz-feedback');
 
-      // Verifica se acertou ou errou
+      // Acertou: fica verde e soma ponto
       if (indiceSelecionado === q.certa) {
-        pontos++;                               // soma um ponto
-        botaoClicado.classList.add('correta');  // botão fica verde
+        pontos++;
+        botaoClicado.classList.add('correta');
         feedback.className = 'quiz-feedback ok show';
-        feedback.textContent = q.exp;           // mostra a explicação
+        feedback.textContent = q.exp;
 
+      // Errou: fica vermelho e mostra a certa em verde
       } else {
-        botaoClicado.classList.add('errada');                      // botão fica vermelho
-        todosBotoes[q.certa].classList.add('correta');             // mostra a resposta certa em verde
+        botaoClicado.classList.add('errada');
+        todosBotoes[q.certa].classList.add('correta');
         feedback.className = 'quiz-feedback nao show';
-        feedback.textContent = '❌ Não foi dessa vez. ' + q.exp;  // mostra a explicação
+        feedback.textContent = '❌ Não foi dessa vez. ' + q.exp;
       }
 
-      // Se não é a última pergunta, mostra o botão "Próxima"
+      // Se ainda tem perguntas, mostra o botão de próxima
       if (perguntaAtual < perguntas.length - 1) {
         document.getElementById('btn-proximo').classList.add('show');
       } else {
-        // Se é a última, mostra o botão de recomeçar e o resultado
+        // Se acabou, mostra o resultado
         document.getElementById('btn-reiniciar').classList.add('show');
         mostrarResultado();
       }
     }
 
-    // Avança para a próxima pergunta
+    // Vai para a próxima pergunta
     function proximaPergunta() {
       perguntaAtual++;
       carregarPergunta();
     }
 
-    // Mostra a tela de resultado final com emoji e pontuação
+    // Mostra a tela de resultado com emoji e mensagem
     function mostrarResultado() {
-      setTimeout(function() {  // espera 800ms antes de mostrar (fica mais bonito)
+      setTimeout(function() {
 
-        document.getElementById('quiz-conteudo').style.display = 'none'; // esconde as perguntas
-        const resultado = document.getElementById('quiz-resultado');
-        resultado.classList.add('show'); // mostra a tela de resultado
+        document.getElementById('quiz-conteudo').style.display = 'none';
+        document.getElementById('quiz-resultado').classList.add('show');
 
-        // Escolhe o emoji e mensagem dependendo da pontuação
         const aproveitamento = pontos / perguntas.length;
         let emoji, mensagem;
 
@@ -605,45 +562,40 @@
       }, 800);
     }
 
-    // Reinicia o quiz do zero
+    // Reinicia tudo do zero
     function reiniciarQuiz() {
       perguntaAtual = 0;
       pontos = 0;
-      document.getElementById('quiz-resultado').classList.remove('show'); // esconde resultado
-      document.getElementById('quiz-conteudo').style.display = 'block';   // mostra perguntas
-      carregarPergunta(); // carrega a primeira pergunta de novo
+      document.getElementById('quiz-resultado').classList.remove('show');
+      document.getElementById('quiz-conteudo').style.display = 'block';
+      carregarPergunta();
     }
 
-    // Inicia o quiz assim que a página carrega
+    // Começa o quiz quando a página carrega
     carregarPergunta();
 
 
-    // ============================================================
-    // ANIMAÇÃO DE APARECER AO ROLAR A PÁGINA
-    // Cada elemento com a classe "aparecer" fica invisível no início.
-    // Quando o usuário rola a página e o elemento fica visível na tela,
-    // adicionamos a classe "visivel" — aí o CSS faz ele aparecer suavemente.
-    // ============================================================
-
-    // Pega todos os elementos que precisam aparecer ao rolar
+    // Faz os elementos aparecerem suavemente ao rolar a página
     const elementosParaAnimar = document.querySelectorAll('.aparecer');
 
-    // IntersectionObserver: uma ferramenta do navegador que avisa quando
-    // um elemento entra ou sai da área visível da tela
+    // O IntersectionObserver fica de olho em cada elemento
+    // e avisa quando ele aparece na tela
     const observador = new IntersectionObserver(function(entradas) {
       entradas.forEach(function(entrada, indice) {
         if (entrada.isIntersecting) {
-          // O elemento entrou na tela! Adiciona a classe "visivel" com um pequeno atraso
+
+          // Adiciona a classe que faz o elemento aparecer
           setTimeout(function() {
             entrada.target.classList.add('visivel');
-          }, indice * 80); // atraso escalonado: cada elemento aparece um pouquinho depois do anterior
+          }, indice * 80);
 
-          observador.unobserve(entrada.target); // para de observar (já apareceu, não precisa mais)
+          // Para de observar esse elemento, já apareceu
+          observador.unobserve(entrada.target);
         }
       });
-    }, { threshold: 0.1 }); // 0.1 = dispara quando 10% do elemento está visível na tela
+    }, { threshold: 0.1 });
 
-    // Manda o observador vigiar cada elemento
+    // Começa a observar todos os elementos
     elementosParaAnimar.forEach(function(el) {
       observador.observe(el);
     });
