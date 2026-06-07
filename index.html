@@ -1,56 +1,1387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Federant&display=swap" rel="stylesheet">
-    <title>BioFuturo</title>
-</head>
+  <meta charset="UTF-8">
+  <!-- Isso faz o site se adaptar ao tamanho da tela do computador -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bioenergia — O Campo Alimentando o Futuro</title>
 
+  <!-- Aqui estou importando as fontes bonitas lá do Google (de graça!) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* =============================================
+       CORES DO SITE — mude aqui para trocar o visual
+       ============================================= */
+    :root {
+      --verde-escuro: #1a3a1f;   /* verde bem escuro, fundo do menu */
+      --verde-medio: #2d6a35;    /* verde médio, textos secundários */
+      --verde-vivo: #4caf50;     /* verde vibrante, destaques */
+      --verde-claro: #a8d5a2;    /* verde clarinho, textos no fundo escuro */
+      --amarelo: #f5c518;        /* amarelo, cor de destaque principal */
+      --laranja: #e8821a;        /* laranja, detalhes de energia */
+      --terra: #6b3f1a;          /* marrom terra, detalhes biomassa */
+      --creme: #f5f0e8;          /* bege clarinho, fundo das seções alternadas */
+      --branco: #fdfdf8;         /* quase branco, fundo geral */
+      --texto: #1a2b1c;          /* verde bem escuro, cor do texto principal */
+    }
+
+    /* Zera todas as margens e bordas padrão do navegador */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* Faz o scroll da página ser suave ao clicar nos links do menu */
+    html { scroll-behavior: smooth; }
+
+    /* Estilo geral do corpo da página */
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--branco);
+      color: var(--texto);
+      overflow-x: hidden; /* impede barra de rolagem horizontal feia */
+    }
+
+
+    /* =============================================
+       MENU DE NAVEGAÇÃO (barra do topo)
+       ============================================= */
+    nav {
+      position: fixed;         /* fica fixo no topo mesmo ao rolar a página */
+      top: 0; left: 0; right: 0;
+      z-index: 100;            /* fica na frente de tudo */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 4rem;
+      background: rgba(26, 58, 31, 0.97);  /* verde escuro quase opaco */
+      backdrop-filter: blur(8px);           /* efeito de vidro fosco */
+      border-bottom: 2px solid var(--amarelo); /* linha amarela embaixo */
+    }
+
+    /* Área da logo: foto + nome do autor */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;  /* espaço entre a foto e o nome */
+    }
+
+    /* -----------------------------------------------
+       FOTO DA LOGO — veja as instruções no HTML
+       ----------------------------------------------- */
+    .logo-foto {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;          /* deixa a imagem redonda */
+      object-fit: cover;           /* imagem preenche o círculo sem distorcer */
+      border: 2px solid var(--amarelo); /* borda amarela em volta */
+    }
+
+    /* Texto com o nome do autor ao lado da foto */
+    .logo-nome {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--amarelo);
+      line-height: 1.2;
+    }
+    .logo-nome span {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      color: var(--verde-claro);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+    }
+
+    /* Links do menu: Conceito, Tipos, etc. */
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;   /* remove os pontinhos de lista */
+    }
+    .nav-links a {
+      color: var(--verde-claro);
+      text-decoration: none;  /* remove sublinhado */
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.3s;  /* muda de cor suavemente ao passar o mouse */
+    }
+    .nav-links a:hover { color: var(--amarelo); }
+
+
+    /* =============================================
+       SEÇÃO HERO — a tela inicial grande
+       ============================================= */
+    .hero {
+      min-height: 100vh;  /* ocupa a tela inteira de altura */
+      background: var(--verde-escuro);
+      display: grid;
+      grid-template-columns: 55% 45%;  /* texto na esquerda, visual na direita */
+      align-items: center;
+      padding: 7rem 5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Brilho decorativo de fundo (não é imagem, é só CSS mesmo) */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 75% 35%, rgba(76,175,80,0.15) 0%, transparent 55%),
+        radial-gradient(ellipse at 15% 80%, rgba(232,130,26,0.10) 0%, transparent 45%);
+      pointer-events: none; /* não atrapalha cliques */
+    }
+
+    /* Coluna com o texto do hero */
+    .hero-text { position: relative; z-index: 2; }
+
+    /* Etiquetinha amarela: "Energia Renovável · Brasil · 2026" */
+    .hero-tag {
+      display: inline-block;
+      background: var(--amarelo);
+      color: var(--verde-escuro);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 3px;
+      margin-bottom: 1.5rem;
+      /* animação simples: aparece descendo de cima */
+      animation: aparecer 0.8s ease both;
+    }
+
+    /* Título principal grande */
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      font-weight: 900;
+      color: var(--branco);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+      animation: aparecer 0.9s ease 0.1s both;  /* aparece um pouco depois */
+    }
+    /* A palavra em destaque verde */
+    .hero h1 em {
+      color: var(--verde-vivo);
+      font-style: normal;
+      display: block;
+    }
+
+    /* Parágrafo de descrição embaixo do título */
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--verde-claro);
+      line-height: 1.8;
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      animation: aparecer 1s ease 0.2s both;
+    }
+
+    /* Botões do hero */
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      animation: aparecer 1s ease 0.3s both;
+    }
+
+    /* Botão cheio (amarelo) */
+    .btn-primary {
+      background: var(--amarelo);
+      color: var(--verde-escuro);
+      padding: 0.9rem 2.2rem;
+      border: none;
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);  /* sobe um pouquinho ao passar o mouse */
+      box-shadow: 0 8px 24px rgba(245,197,24,0.4);
+    }
+
+    /* Botão com borda (transparente) */
+    .btn-outline {
+      background: transparent;
+      color: var(--verde-claro);
+      padding: 0.9rem 2.2rem;
+      border: 1.5px solid var(--verde-claro);
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--amarelo); color: var(--amarelo); }
+
+
+    /* -----------------------------------------------
+       VISUAL ANIMADO DO HERO (lado direito)
+       ----------------------------------------------- */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      animation: aparecer-direita 1s ease 0.3s both;
+    }
+
+    /* Caixa que contém o visual todo */
+    .bio-visual-box {
+      position: relative;
+      width: 380px;
+      height: 380px;
+    }
+
+    /* Círculo grande de fundo com brilho verde */
+    .bio-circulo {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, rgba(76,175,80,0.2), transparent 70%);
+      border: 1px solid rgba(76,175,80,0.2);
+    }
+
+    /* Círculo do meio com o emoji 🌱 */
+    .bio-centro {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px; height: 120px;
+      background: linear-gradient(135deg, var(--verde-vivo), var(--verde-escuro));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.2rem;
+      box-shadow: 0 0 50px rgba(76,175,80,0.5);
+    }
+
+    /* Os 4 quadradinhos ao redor do centro (etanol, biogás, etc.) */
+    .bio-card-mini {
+      position: absolute;
+      width: 90px; height: 90px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      font-size: 1.6rem;
+      color: var(--verde-claro);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      transition: transform 0.3s;
+    }
+    .bio-card-mini:hover { transform: scale(1.08); }
+    .bio-card-mini .mini-emoji { font-size: 2rem; }
+
+    /* Posição de cada quadradinho */
+    .bio-card-mini:nth-child(2) { top: 20px; left: 20px; }
+    .bio-card-mini:nth-child(3) { top: 20px; right: 20px; }
+    .bio-card-mini:nth-child(4) { bottom: 20px; left: 20px; }
+    .bio-card-mini:nth-child(5) { bottom: 20px; right: 20px; }
+
+    /* Slogan embaixo do visual */
+    .bio-slogan {
+      position: absolute;
+      bottom: -2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: rgba(168,213,162,0.6);
+      letter-spacing: 0.1em;
+    }
+
+
+    /* =============================================
+       ESTILO GERAL DAS SEÇÕES
+       ============================================= */
+    section { padding: 6rem 5rem; }
+
+    /* Etiquetinha cinza acima do título (ex: "// O que é") */
+    .section-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--verde-medio);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+
+    /* Título de cada seção */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--verde-escuro);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    /* Parágrafo de descrição da seção */
+    .section-desc {
+      font-size: 1rem;
+      color: #3a5c3d;
+      line-height: 1.8;
+      max-width: 640px;
+      font-weight: 300;
+    }
+
+
+    /* =============================================
+       SEÇÃO CONCEITO
+       ============================================= */
+    #conceito {
+      background: var(--creme);
+      display: grid;
+      grid-template-columns: 1fr 1fr;  /* duas colunas iguais */
+      gap: 5rem;
+      align-items: center;
+    }
+
+    /* Coluna com os cards de conceito */
+    .conceito-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    /* Cada card de conceito (com borda colorida na esquerda) */
+    .conceito-card {
+      background: var(--branco);
+      border-left: 4px solid var(--verde-vivo); /* risca colorida à esquerda */
+      border-radius: 0 8px 8px 0;
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      transition: transform 0.25s;
+    }
+    .conceito-card:hover { transform: translateX(6px); } /* desliza pro lado ao passar o mouse */
+    .conceito-card:nth-child(2) { border-color: var(--amarelo); }
+    .conceito-card:nth-child(3) { border-color: var(--laranja); }
+    .card-icon { font-size: 2rem; flex-shrink: 0; }
+    .card-title { font-weight: 700; color: var(--verde-escuro); margin-bottom: 0.3rem; font-size: 1rem; }
+    .card-text { font-size: 0.9rem; color: #4a6b4d; line-height: 1.65; }
+
+
+    /* =============================================
+       SEÇÃO TIPOS DE BIOENERGIA
+       ============================================= */
+    #tipos { background: var(--verde-escuro); color: var(--branco); }
+    #tipos .section-title { color: var(--branco); }
+    #tipos .section-tag { color: var(--verde-claro); }
+    #tipos .section-desc { color: rgba(255,255,255,0.65); }
+
+    /* Grade dos 4 cards de tipo */
+    .tipos-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 colunas lado a lado no PC */
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    /* Cada card de tipo */
+    .tipo-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Faixinha colorida no topo de cada card */
+    .tipo-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .tipo-card.etanol::before   { background: linear-gradient(90deg, var(--verde-vivo), var(--amarelo)); }
+    .tipo-card.biodiesel::before{ background: linear-gradient(90deg, var(--amarelo), var(--laranja)); }
+    .tipo-card.biogas::before   { background: linear-gradient(90deg, var(--laranja), #c0392b); }
+    .tipo-card.biomassa::before { background: linear-gradient(90deg, var(--terra), var(--laranja)); }
+
+    .tipo-card:hover { background: rgba(255,255,255,0.09); transform: translateY(-5px); }
+    .tipo-emoji { font-size: 2.5rem; margin-bottom: 1rem; }
+    .tipo-nome {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: var(--branco);
+    }
+    .tipo-sub {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--verde-claro);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .tipo-desc { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+    .tipo-detalhe {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.82rem;
+      color: var(--verde-claro);
+      line-height: 1.5;
+    }
+
+
+    /* =============================================
+       SEÇÃO IMPACTO
+       ============================================= */
+    #impacto { background: var(--branco); }
+
+    /* Linha com os 3 números grandes */
+    .impacto-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .impacto-item {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-radius: 12px;
+      background: var(--creme);
+      border: 1px solid rgba(76,175,80,0.12);
+      transition: transform 0.3s;
+    }
+    .impacto-item:hover { transform: translateY(-5px); }
+    .impacto-numero {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--verde-medio);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .impacto-label { font-weight: 700; color: var(--verde-escuro); margin-bottom: 0.4rem; font-size: 1rem; }
+    .impacto-desc { font-size: 0.87rem; color: #5a7a5d; line-height: 1.6; }
+
+    /* Grade dos 4 benefícios com ícone */
+    .beneficios-lista {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .beneficio {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.2rem;
+      background: var(--creme);
+      border-radius: 8px;
+    }
+    .ben-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .ben-title { font-weight: 700; color: var(--verde-escuro); font-size: 0.93rem; margin-bottom: 0.2rem; }
+    .ben-text { font-size: 0.87rem; color: #5a7a5d; line-height: 1.6; }
+
+
+    /* =============================================
+       SEÇÃO INOVAÇÕES
+       ============================================= */
+    #inovacoes {
+      background: linear-gradient(135deg, #1a3a1f 0%, #0d2210 100%);
+      color: var(--branco);
+    }
+    #inovacoes .section-title { color: var(--branco); }
+    #inovacoes .section-tag { color: var(--amarelo); }
+
+    /* Grade 2x2 dos cards de inovação */
+    .inov-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .inov-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(76,175,80,0.2);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    .inov-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--amarelo);
+      margin-bottom: 0.9rem;
+    }
+    .inov-card p { font-size: 0.93rem; color: rgba(255,255,255,0.72); line-height: 1.75; }
+
+    /* Etiqueta "Destaque Paraná" */
+    .parana-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--verde-vivo);
+      color: var(--verde-escuro);
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 0.7rem;
+      font-family: 'Space Mono', monospace;
+      text-transform: uppercase;
+    }
+
+
+    /* =============================================
+       SEÇÃO QUIZ
+       ============================================= */
+    #quiz { background: var(--creme); }
+
+    /* Caixa branca central do quiz */
+    .quiz-container {
+      max-width: 780px;
+      margin: 3rem auto 0;
+      background: var(--branco);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+      border: 1px solid rgba(76,175,80,0.15);
+    }
+
+    /* Barra de progresso (a barrinha verde que avança) */
+    .quiz-progresso { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+    .quiz-bar-bg {
+      flex: 1; height: 6px;
+      background: #e0e0e0; border-radius: 3px; overflow: hidden;
+    }
+    .quiz-bar {
+      height: 100%;
+      background: var(--verde-vivo);
+      border-radius: 3px;
+      transition: width 0.5s ease;  /* cresce suavemente */
+    }
+    .quiz-count { font-family: 'Space Mono', monospace; font-size: 0.78rem; color: #888; white-space: nowrap; }
+
+    /* Texto da pergunta */
+    .quiz-pergunta {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--verde-escuro);
+      margin-bottom: 1.5rem;
+      line-height: 1.45;
+      min-height: 3rem;
+    }
+
+    /* Lista de opções */
+    .quiz-opcoes { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    /* Cada botão de opção */
+    .quiz-opcao {
+      padding: 0.95rem 1.3rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.93rem;
+      transition: all 0.2s;
+      text-align: left;
+      background: var(--branco);
+      color: var(--texto);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .quiz-opcao:hover:not(:disabled) { border-color: var(--verde-vivo); background: rgba(76,175,80,0.05); }
+    .quiz-opcao.correta { border-color: var(--verde-vivo); background: rgba(76,175,80,0.12); color: var(--verde-escuro); font-weight: 600; }
+    .quiz-opcao.errada  { border-color: #e53935; background: rgba(229,57,53,0.08); color: #c0392b; }
+
+    /* Caixa de feedback (aparece após responder) */
+    .quiz-feedback {
+      margin-top: 1.2rem;
+      padding: 1rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      display: none; /* começa escondida */
+    }
+    .quiz-feedback.show { display: block; } /* aparece com essa classe */
+    .quiz-feedback.ok  { background: rgba(76,175,80,0.1); color: var(--verde-escuro); border-left: 4px solid var(--verde-vivo); }
+    .quiz-feedback.nao { background: rgba(229,57,53,0.08); color: #8b0000; border-left: 4px solid #e53935; }
+
+    /* Botões de navegação do quiz */
+    .quiz-nav { margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 1rem; }
+    .btn-quiz {
+      padding: 0.75rem 1.8rem;
+      border: none; border-radius: 6px;
+      font-weight: 700; font-size: 0.9rem;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.2s;
+      display: none; /* começa escondido */
+    }
+    .btn-quiz.show { display: inline-block; } /* aparece quando necessário */
+    #btn-proximo  { background: var(--verde-vivo); color: white; }
+    #btn-proximo:hover { background: var(--verde-medio); }
+    #btn-reiniciar { background: var(--amarelo); color: var(--verde-escuro); }
+
+    /* Tela de resultado final do quiz */
+    .quiz-resultado { text-align: center; display: none; padding: 1.5rem; }
+    .quiz-resultado.show { display: block; }
+    .resultado-emoji { font-size: 4rem; margin-bottom: 1rem; }
+    .resultado-texto { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--verde-escuro); margin-bottom: 0.5rem; }
+    .resultado-pts { font-size: 1.05rem; color: var(--verde-medio); margin-bottom: 1.5rem; }
+
+    /* Cards "Você Sabia?" */
+    .sabia-section { margin-top: 4rem; }
+    .sabia-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--verde-escuro); margin-bottom: 1.5rem; text-align: center; }
+
+    /* Grade 2 colunas para os cards de curiosidade */
+    .sabia-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .sabia-card {
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      padding: 1.2rem 1.5rem;
+      background: var(--branco);
+      border-radius: 10px;
+      border-left: 5px solid var(--verde-vivo);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .sabia-card:nth-child(even) { border-color: var(--amarelo); }
+    .sabia-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .sabia-text { font-size: 0.9rem; color: #3a5c3d; line-height: 1.65; }
+    .sabia-text strong { color: var(--verde-escuro); }
+
+
+    /* =============================================
+       SEÇÃO FONTES
+       ============================================= */
+    #fontes {
+      background: var(--verde-escuro);
+      color: var(--branco);
+      padding: 3.5rem 5rem;
+    }
+    #fontes .section-tag { color: var(--verde-claro); }
+    .fontes-lista { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.5rem; }
+    .fonte-badge {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.45rem 1rem;
+      border-radius: 20px;
+      font-size: 0.83rem;
+      color: var(--verde-claro);
+      font-family: 'Space Mono', monospace;
+    }
+
+
+    /* =============================================
+       RODAPÉ
+       ============================================= */
+    footer {
+      background: #0d2210;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 2rem 5rem;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    footer strong { color: var(--verde-claro); }
+
+
+    /* =============================================
+       ANIMAÇÕES — as coisas aparecem ao rolar a página
+       ============================================= */
+
+    /* Estado inicial: invisível e um pouco abaixo do lugar certo */
+    .aparecer {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    /* Quando a classe "visivel" é adicionada, o elemento aparece */
+    .aparecer.visivel {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Keyframe: animação de entrada de cima pra baixo (hero) */
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Keyframe: animação de entrada da direita pra esquerda (hero visual) */
+    @keyframes aparecer-direita {
+      from { opacity: 0; transform: translateX(24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+  </style>
+</head>
 <body>
 
-    <header>
-     <img src="logo.png" alt="BioFuturo" class="logo-site">
-   BioFuturo
-    </header>
 
-    <section class= chamada>
-    <div class="chamada-texto">
-        <h1>A odisseia de uma garrafa</h1>
-        <p>#meio-ambiente</p>
-    </div>
-    
-    <div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/EWqnWXnXURw?si=RJnS6lk2DJOJ614S"
-            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-  encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-    </div>
-    </section>
+  <!-- ============================================================
+       MENU DE NAVEGAÇÃO
+       ============================================================ -->
+  <nav>
 
-    <section class="categoria">
-        <h2>videos</h2>
-        <div class="categoria-videos">
-            <a href="https://youtu.be/zkQu0QNcWjA?si=hAZ_eWj8qyaBGoBw">
-            <img src=https://img.youtube.com/vi/zkQu0QNcWjA/maxresdefault.jpg />
-            </a>
-            <a href="https://youtu.be/sfa-jnXtA84?si=QxtniVdWxVdeBfoW">
-            <img src=https://img.youtube.com/vi/sfa-jnXtA84/maxresdefault.jpg />
-            </a>
-            <a href="https://youtu.be/1Lqya70d7hw?si=IHPFTWovMgA7iMhW">
-            <img src=https://img.youtube.com/vi/1Lqya70d7hw/maxresdefault.jpg />
-            </a>
-            <a href="https://youtu.be/Tcy_QYXPhsY?si=ZDfWKRH-F7Ma1wih">
-            <img src=https://img.youtube.com/vi/Tcy_QYXPhsY/maxresdefault.jpg />
-            </a>
-            <a href="https://youtu.be/Db2SIzz00_c?si=B__7NpMgFAKzVaiL">
-            <img src=https://img.youtube.com/vi/Db2SIzz00_c/maxresdefault.jpg />
-            </a>
+    <!-- LOGO: foto + nome do autor -->
+    <div class="nav-logo">
+
+      <!--
+        ╔══════════════════════════════════════════════════════╗
+        ║  COMO COLOCAR SUA FOTO AQUI:                         ║
+        ║                                                      ║
+        ║  1. Salve sua foto na mesma pasta que este arquivo   ║
+        ║     HTML. Exemplo: "minha-foto.jpg"                  ║
+        ║                                                      ║
+        ║  2. Troque o texto "minha-foto.jpg" abaixo pelo      ║
+        ║     nome exato do arquivo da sua foto.               ║
+        ║                                                      ║
+        ║  3. Se não quiser foto, apague a linha <img> toda.   ║
+        ╚══════════════════════════════════════════════════════╝
+      -->
+      <img
+        class="logo-foto"
+        src="minha-foto.jpg"
+        alt="Foto do autor"
+        onerror="this.style.display='none'"
+      >
+      <!-- onerror: se a foto não for encontrada, ela some (não dá erro feio) -->
+
+      <!--
+        TROQUE "Seu Nome Aqui" pelo seu nome de verdade!
+        O texto pequeno embaixo também pode ser trocado.
+      -->
+      <div class="logo-nome">
+        Seu Nome Aqui
+        <span>Projeto Agrinho 2026</span>
+      </div>
+    </div>
+
+    <!-- Links de navegação -->
+    <ul class="nav-links">
+      <li><a href="#conceito">O Conceito</a></li>
+      <li><a href="#tipos">Tipos</a></li>
+      <li><a href="#impacto">Impacto</a></li>
+      <li><a href="#inovacoes">Inovações</a></li>
+      <li><a href="#quiz">Quiz</a></li>
+    </ul>
+
+  </nav>
+
+
+  <!-- ============================================================
+       SEÇÃO HERO — tela inicial
+       ============================================================ -->
+  <section class="hero" id="home">
+
+    <!-- Coluna da esquerda: texto -->
+    <div class="hero-text">
+      <div class="hero-tag">🌿 Energia Renovável · Brasil · 2026</div>
+
+      <h1>
+        O campo alimentando
+        <em>o futuro</em>
+      </h1>
+
+      <p class="hero-sub">
+        Descubra como resíduos agrícolas, esterco e bagaço de cana se transformam
+        em energia limpa, movimentando o Brasil e protegendo o planeta.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#conceito" class="btn-primary">Explorar o tema</a>
+        <a href="#quiz" class="btn-outline">Fazer o quiz →</a>
+      </div>
+    </div>
+
+    <!-- Coluna da direita: visual decorativo com 4 cards e círculo central -->
+    <div class="hero-visual">
+      <div class="bio-visual-box">
+        <div class="bio-circulo"></div>
+
+        <!-- Círculo central com a planta -->
+        <div class="bio-centro">🌱</div>
+
+        <!-- 4 mini-cards nos cantos -->
+        <div class="bio-card-mini">
+          <div class="mini-emoji">🌾</div>
+          ETANOL
         </div>
-    </section>
+        <div class="bio-card-mini">
+          <div class="mini-emoji">🌻</div>
+          BIODIESEL
+        </div>
+        <div class="bio-card-mini">
+          <div class="mini-emoji">🐄</div>
+          BIOGÁS
+        </div>
+        <div class="bio-card-mini">
+          <div class="mini-emoji">🪵</div>
+          BIOMASSA
+        </div>
+
+        <div class="bio-slogan">"Movendo o mundo com energia limpa"</div>
+      </div>
+    </div>
+
+  </section>
 
 
+  <!-- ============================================================
+       SEÇÃO CONCEITO — O que é bioenergia?
+       ============================================================ -->
+  <section id="conceito">
+
+    <!-- Texto explicativo à esquerda -->
+    <div class="aparecer">
+      <div class="section-tag">// O que é</div>
+      <h2 class="section-title">Bioenergia: transformando<br>resíduos em riqueza</h2>
+      <p class="section-desc">
+        É a energia gerada a partir da biomassa — matéria orgânica de origem vegetal ou animal.
+        O que antes era considerado lixo ou sobra agora move veículos, aquece indústrias
+        e ilumina comunidades inteiras.
+      </p>
+    </div>
+
+    <!-- 3 cards à direita -->
+    <div class="conceito-cards aparecer">
+      <div class="conceito-card">
+        <div class="card-icon">♻️</div>
+        <div>
+          <div class="card-title">Economia Circular</div>
+          <div class="card-text">Resíduos agrícolas, esterco animal e sobras industriais entram no ciclo produtivo, gerando energia e reduzindo o desperdício ao mínimo.</div>
+        </div>
+      </div>
+      <div class="conceito-card">
+        <div class="card-icon">🌍</div>
+        <div>
+          <div class="card-title">Energia Limpa e Renovável</div>
+          <div class="card-text">Ao contrário do petróleo e do carvão, a biomassa é renovável: o carbono liberado é reabsorvido pelas plantas no próximo ciclo de cultivo.</div>
+        </div>
+      </div>
+      <div class="conceito-card">
+        <div class="card-icon">🏡</div>
+        <div>
+          <div class="card-title">Energia que nasce no campo</div>
+          <div class="card-text">O produtor rural deixa de ser apenas fornecedor de alimentos e passa a ser também gerador de energia — com mais renda e autonomia.</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       SEÇÃO TIPOS — Os 4 tipos principais
+       ============================================================ -->
+  <section id="tipos">
+
+    <div class="aparecer">
+      <div class="section-tag">// As fontes</div>
+      <h2 class="section-title">Principais tipos de bioenergia</h2>
+      <p class="section-desc">Do campo para o tanque de combustível, da granja para a tomada elétrica — conheça as quatro grandes fontes que movem o Brasil.</p>
+    </div>
+
+    <!-- Grade com os 4 cards de tipo -->
+    <div class="tipos-grid">
+
+      <div class="tipo-card etanol aparecer">
+        <div class="tipo-emoji">🌾</div>
+        <div class="tipo-nome">Etanol</div>
+        <div class="tipo-sub">Biocombustível líquido</div>
+        <p class="tipo-desc">Produzido principalmente da cana-de-açúcar, o etanol é o combustível renovável mais usado no Brasil. Também cresce a produção a partir do milho, diversificando a matriz.</p>
+        <div class="tipo-detalhe">🇧🇷 O Brasil é o 2.º maior produtor mundial de etanol, com mais de 35 bilhões de litros por ano.</div>
+      </div>
+
+      <div class="tipo-card biodiesel aparecer">
+        <div class="tipo-emoji">🌻</div>
+        <div class="tipo-nome">Biodiesel</div>
+        <div class="tipo-sub">Biocombustível líquido</div>
+        <p class="tipo-desc">Fabricado a partir de óleos vegetais (principalmente soja) e gordura animal. Misturado ao diesel comum, reduz a fumaça preta dos motores.</p>
+        <div class="tipo-detalhe">⛽ Desde 2023, todo diesel vendido no Brasil leva pelo menos 14% de biodiesel na mistura.</div>
+      </div>
+
+      <div class="tipo-card biogas aparecer">
+        <div class="tipo-emoji">🐄</div>
+        <div class="tipo-nome">Biogás</div>
+        <div class="tipo-sub">Combustível gasoso</div>
+        <p class="tipo-desc">Os dejetos da pecuária e resíduos da agroindústria são decompostos em biodigestores, produzindo gás para gerar eletricidade ou abastecer veículos.</p>
+        <div class="tipo-detalhe">💡 Os dejetos de uma granja de 1.000 suínos podem gerar energia para cerca de 50 famílias.</div>
+      </div>
+
+      <div class="tipo-card biomassa aparecer">
+        <div class="tipo-emoji">🪵</div>
+        <div class="tipo-nome">Biomassa Sólida</div>
+        <div class="tipo-sub">Energia térmica e elétrica</div>
+        <p class="tipo-desc">O bagaço da cana, a lenha de plantios florestais e os cavacos de madeira são queimados em caldeiras para gerar vapor e eletricidade nas indústrias.</p>
+        <div class="tipo-detalhe">⚡ As usinas sucroalcooleiras geram mais energia do que consomem graças ao bagaço da cana.</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SEÇÃO IMPACTO — Números e benefícios
+       ============================================================ -->
+  <section id="impacto">
+
+    <div class="aparecer">
+      <div class="section-tag">// Sustentabilidade</div>
+      <h2 class="section-title">Por que a bioenergia importa tanto?</h2>
+      <p class="section-desc">Além de substituir combustíveis fósseis, a bioenergia gera empregos, fixa o trabalhador no campo e fortalece a economia regional.</p>
+    </div>
+
+    <!-- 3 caixas com números grandes -->
+    <div class="impacto-grid aparecer">
+      <div class="impacto-item">
+        <div class="impacto-numero">73%</div>
+        <div class="impacto-label">Menos CO₂ que a gasolina</div>
+        <div class="impacto-desc">O etanol reduz drasticamente as emissões de gases do efeito estufa em comparação com os combustíveis fósseis.</div>
+      </div>
+      <div class="impacto-item">
+        <div class="impacto-numero">1 mi+</div>
+        <div class="impacto-label">Empregos gerados</div>
+        <div class="impacto-desc">O setor sucroenergético e de biocombustíveis emprega mais de 1 milhão de trabalhadores diretos no Brasil.</div>
+      </div>
+      <div class="impacto-item">
+        <div class="impacto-numero">16%</div>
+        <div class="impacto-label">Da energia elétrica do Brasil</div>
+        <div class="impacto-desc">A biomassa já responde por cerca de 16% da geração elétrica nacional, complementando as hidrelétricas.</div>
+      </div>
+    </div>
+
+    <!-- 4 benefícios com ícone -->
+    <div class="beneficios-lista aparecer">
+      <div class="beneficio">
+        <div class="ben-icon">🌡️</div>
+        <div>
+          <div class="ben-title">Redução do aquecimento global</div>
+          <div class="ben-text">Menos gases de efeito estufa na atmosfera, contribuindo para as metas climáticas brasileiras e internacionais.</div>
+        </div>
+      </div>
+      <div class="beneficio">
+        <div class="ben-icon">🔋</div>
+        <div>
+          <div class="ben-title">Independência energética</div>
+          <div class="ben-text">O campo produz sua própria energia, reduzindo a dependência de petróleo importado e tornando o país mais soberano.</div>
+        </div>
+      </div>
+      <div class="beneficio">
+        <div class="ben-icon">🏘️</div>
+        <div>
+          <div class="ben-title">Desenvolvimento regional</div>
+          <div class="ben-text">Empregos verdes no interior fixam o trabalhador no campo com qualidade de vida, evitando o êxodo rural.</div>
+        </div>
+      </div>
+      <div class="beneficio">
+        <div class="ben-icon">🌀</div>
+        <div>
+          <div class="ben-title">Economia circular</div>
+          <div class="ben-text">Resíduos que antes poluíam rios e solos agora entram no ciclo produtivo, gerando renda e protegendo o meio ambiente.</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       SEÇÃO INOVAÇÕES — Tecnologias recentes (2026)
+       ============================================================ -->
+  <section id="inovacoes">
+
+    <div class="aparecer">
+      <div class="section-tag">// Foco em 2026</div>
+      <h2 class="section-title">Inovações e o cenário atual</h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.65)">A bioenergia está em constante evolução. Veja as tecnologias que estão redefinindo o setor hoje.</p>
+    </div>
+
+    <!-- 4 cards de inovação em grade 2x2 -->
+    <div class="inov-grid">
+
+      <div class="inov-card aparecer">
+        <h3>🧬 Etanol de 2.ª Geração (E2G)</h3>
+        <p>Tecnologia que aproveita a palha e o bagaço da cana para produzir ainda mais etanol sem precisar plantar uma hectare a mais. Mais combustível, mesma terra, menos impacto ambiental.</p>
+      </div>
+
+      <div class="inov-card aparecer">
+        <div class="parana-badge">📍 Destaque Paraná</div>
+        <h3>🐖 Biogás na suinocultura e avicultura</h3>
+        <p>O Paraná é pioneiro no uso de biodigestores em granjas de suínos e aves. Os dejetos viram biogás que gera eletricidade para a própria propriedade, e ainda produz biofertilizante para as lavouras.</p>
+      </div>
+
+      <div class="inov-card aparecer">
+        <h3>🚛 Biometano nos transportes</h3>
+        <p>O biometano — biogás purificado — pode substituir o gás natural em caminhões, ônibus e tratores. Uma aposta forte do agronegócio brasileiro para descarbonizar o transporte pesado.</p>
+      </div>
+
+      <div class="inov-card aparecer">
+        <h3>☀️ Biogás + Solar: a dupla do futuro</h3>
+        <p>Propriedades rurais combinam energia solar fotovoltaica com biodigestores: o sol produz energia de dia, o biogás complementa à noite. Resultado: fazendas completamente autossuficientes em energia.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SEÇÃO QUIZ — Perguntas interativas
+       ============================================================ -->
+  <section id="quiz">
+
+    <div class="aparecer" style="text-align:center">
+      <div class="section-tag" style="display:block">// Teste seus conhecimentos</div>
+      <h2 class="section-title">Quiz de Bioenergia</h2>
+      <p class="section-desc" style="margin:0 auto; text-align:center">5 perguntas para ver o quanto você aprendeu!</p>
+    </div>
+
+    <!-- Caixa branca do quiz -->
+    <div class="quiz-container aparecer">
+
+      <!-- Parte que aparece durante o quiz -->
+      <div id="quiz-conteudo">
+
+        <!-- Barra de progresso + contador de perguntas -->
+        <div class="quiz-progresso">
+          <div class="quiz-bar-bg">
+            <div class="quiz-bar" id="quiz-bar" style="width:20%"></div>
+          </div>
+          <div class="quiz-count" id="quiz-count">1 / 5</div>
+        </div>
+
+        <!-- Texto da pergunta (preenchido pelo JavaScript) -->
+        <div class="quiz-pergunta" id="quiz-pergunta"></div>
+
+        <!-- Botões de opção (criados pelo JavaScript) -->
+        <div class="quiz-opcoes" id="quiz-opcoes"></div>
+
+        <!-- Mensagem de certo/errado (aparece após clicar) -->
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+
+        <!-- Botões de navegar entre perguntas -->
+        <div class="quiz-nav">
+          <button class="btn-quiz" id="btn-proximo"   onclick="proximaPergunta()">Próxima →</button>
+          <button class="btn-quiz" id="btn-reiniciar" onclick="reiniciarQuiz()">Recomeçar</button>
+        </div>
+      </div>
+
+      <!-- Tela de resultado final (escondida até o quiz terminar) -->
+      <div class="quiz-resultado" id="quiz-resultado">
+        <div class="resultado-emoji" id="resultado-emoji"></div>
+        <div class="resultado-texto" id="resultado-texto"></div>
+        <div class="resultado-pts"   id="resultado-pts"></div>
+        <button class="btn-primary" onclick="reiniciarQuiz()">Jogar novamente</button>
+      </div>
+
+    </div>
+
+    <!-- Curiosidades "Você Sabia?" -->
+    <div class="sabia-section aparecer">
+      <h3 class="sabia-title">💡 Você Sabia?</h3>
+      <div class="sabia-cards">
+        <div class="sabia-card">
+          <div class="sabia-icon">🐷</div>
+          <div class="sabia-text">O biogás gerado pelos dejetos de <strong>uma única granja com 1.000 suínos</strong> pode iluminar várias casas da comunidade por mês, e ainda sobrar para aquecer água e cozinhar.</div>
+        </div>
+        <div class="sabia-card">
+          <div class="sabia-icon">🚗</div>
+          <div class="sabia-text">O Brasil tem a <strong>única frota de veículos flex do mundo</strong> em grande escala — mais de 35 milhões de carros que rodam tanto com gasolina quanto com etanol puro de cana.</div>
+        </div>
+        <div class="sabia-card">
+          <div class="sabia-icon">🌿</div>
+          <div class="sabia-text">Uma tonelada de bagaço de cana-de-açúcar gera <strong>energia equivalente a meio barril de petróleo</strong> — sem precisar perfurar nenhum poço ou importar nada.</div>
+        </div>
+        <div class="sabia-card">
+          <div class="sabia-icon">🇧🇷</div>
+          <div class="sabia-text">O Brasil tem <strong>uma das matrizes energéticas mais limpas do mundo</strong>: mais de 80% da eletricidade produzida vem de fontes renováveis, incluindo a biomassa.</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       SEÇÃO FONTES
+       ============================================================ -->
+  <section id="fontes">
+    <div class="section-tag">// Fontes confiáveis</div>
+    <p style="color:rgba(255,255,255,0.75); font-size:0.93rem; margin-bottom:1rem;">
+      As informações deste site foram baseadas em dados de instituições reconhecidas:
+    </p>
+    <div class="fontes-lista">
+      <span class="fonte-badge">Embrapa</span>
+      <span class="fonte-badge">UNICA — Setor Sucroenergético</span>
+      <span class="fonte-badge">ANP — Agência Nacional do Petróleo</span>
+      <span class="fonte-badge">Itaipu Binacional</span>
+      <span class="fonte-badge">Secretaria da Agricultura do Paraná</span>
+      <span class="fonte-badge">MAPA — Ministério da Agricultura</span>
+      <span class="fonte-badge">EPE — Empresa de Pesquisa Energética</span>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       RODAPÉ
+       ============================================================ -->
+  <footer>
+    <p>
+      Feito com 🌱 para o <strong>Concurso Agrinho 2026</strong>
+      &nbsp;|&nbsp;
+      Bioenergia: o campo alimentando o futuro e movendo o mundo com energia limpa
+    </p>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT — a parte que faz o site "funcionar de verdade"
+       ============================================================ -->
+  <script>
+
+    // ============================================================
+    // QUIZ — Perguntas, respostas e lógica
+    // ============================================================
+
+    // Aqui ficam todas as perguntas do quiz.
+    // Cada pergunta tem: o texto (p), as opções (ops), qual é a certa (certa) e a explicação (exp).
+    const perguntas = [
+      {
+        p: "O que é biomassa?",
+        ops: [
+          "Matéria orgânica de origem animal ou vegetal usada para produzir energia",
+          "Um tipo de combustível fóssil extraído do subsolo",
+          "Energia gerada pelo vento e pela água",
+          "Um mineral encontrado em regiões tropicais"
+        ],
+        certa: 0,  // a opção correta é a de índice 0 (a primeira)
+        exp: "✅ Correto! Biomassa é toda matéria orgânica de origem vegetal ou animal que pode ser transformada em energia — como bagaço de cana, esterco e resíduos agrícolas."
+      },
+      {
+        p: "Qual é a principal matéria-prima do etanol brasileiro?",
+        ops: ["Soja", "Cana-de-açúcar", "Milho", "Eucalipto"],
+        certa: 1,  // a segunda opção (índice 1) é a correta
+        exp: "✅ Exato! O etanol brasileiro é produzido principalmente a partir da cana-de-açúcar, tornando o Brasil o 2.º maior produtor mundial do biocombustível."
+      },
+      {
+        p: "O que é o Etanol de Segunda Geração (E2G)?",
+        ops: [
+          "Etanol produzido em usinas construídas após 2000",
+          "Etanol feito de duas espécies diferentes de cana",
+          "Etanol obtido da palha e do bagaço da cana, sem plantar mais",
+          "Um tipo de gasolina com 2% de etanol na mistura"
+        ],
+        certa: 2,  // a terceira opção (índice 2) é a correta
+        exp: "✅ Perfeito! O E2G aproveita a palha e o bagaço que antes eram descartados, produzindo mais combustível sem ampliar a área cultivada."
+      },
+      {
+        p: "Como o biogás é produzido nas granjas?",
+        ops: [
+          "Pela queima da lenha dos pomares",
+          "Pela decomposição dos dejetos dos animais em biodigestores",
+          "Pela fermentação de grãos de soja",
+          "Pela irradiação solar de estufas agrícolas"
+        ],
+        certa: 1,
+        exp: "✅ Isso mesmo! Os dejetos de suínos, bovinos e aves são colocados em biodigestores, onde micro-organismos os decompõem e liberam o biogás."
+      },
+      {
+        p: "Qual benefício está DIRETAMENTE relacionado à bioenergia?",
+        ops: [
+          "Aumento das exportações de petróleo",
+          "Maior desmatamento para plantar energéticas",
+          "Redução das emissões de gases do efeito estufa",
+          "Importação de tecnologia nuclear"
+        ],
+        certa: 2,
+        exp: "✅ Correto! A bioenergia substitui combustíveis fósseis, reduzindo a emissão de CO₂ e outros gases que causam o aquecimento global."
+      }
+    ];
+
+    // Variáveis de controle do quiz:
+    let perguntaAtual = 0;  // qual pergunta está sendo mostrada agora (começa na 0)
+    let pontos = 0;         // quantos acertos o usuário tem até agora
+    let jaRespondeu = false; // impede clicar em várias opções na mesma pergunta
+
+    // Essa função monta e exibe a pergunta atual na tela
+    function carregarPergunta() {
+      jaRespondeu = false;
+
+      // Esconde os botões de "próxima" e "recomeçar"
+      document.getElementById('btn-proximo').classList.remove('show');
+      document.getElementById('btn-reiniciar').classList.remove('show');
+
+      // Limpa o feedback da pergunta anterior
+      const feedback = document.getElementById('quiz-feedback');
+      feedback.className = 'quiz-feedback';
+      feedback.textContent = '';
+
+      // Pega os dados da pergunta atual do array
+      const q = perguntas[perguntaAtual];
+
+      // Coloca o texto da pergunta na tela
+      document.getElementById('quiz-pergunta').textContent = q.p;
+
+      // Atualiza o contador "1 / 5", "2 / 5", etc.
+      document.getElementById('quiz-count').textContent = `${perguntaAtual + 1} / ${perguntas.length}`;
+
+      // Avança a barra de progresso (cada pergunta é 20% do total)
+      const porcentagem = ((perguntaAtual + 1) / perguntas.length) * 100;
+      document.getElementById('quiz-bar').style.width = porcentagem + '%';
+
+      // Cria os botões de opção dinamicamente
+      const containerOpcoes = document.getElementById('quiz-opcoes');
+      containerOpcoes.innerHTML = ''; // limpa as opções antigas
+
+      q.ops.forEach(function(textoOpcao, indice) {
+        const botao = document.createElement('button');  // cria um botão
+        botao.className = 'quiz-opcao';
+        botao.textContent = textoOpcao;
+        botao.onclick = function() { responder(indice, botao); }; // ao clicar, chama responder()
+        containerOpcoes.appendChild(botao); // adiciona o botão na tela
+      });
+    }
+
+    // Essa função é chamada quando o usuário clica em uma opção
+    function responder(indiceSelecionado, botaoClicado) {
+
+      // Se já respondeu essa pergunta, não faz nada
+      if (jaRespondeu) return;
+      jaRespondeu = true;
+
+      const q = perguntas[perguntaAtual];
+
+      // Desabilita todos os botões (não deixa mais clicar)
+      const todosBotoes = document.querySelectorAll('.quiz-opcao');
+      todosBotoes.forEach(function(b) { b.disabled = true; });
+
+      const feedback = document.getElementById('quiz-feedback');
+
+      // Verifica se acertou ou errou
+      if (indiceSelecionado === q.certa) {
+        pontos++;                               // soma um ponto
+        botaoClicado.classList.add('correta');  // botão fica verde
+        feedback.className = 'quiz-feedback ok show';
+        feedback.textContent = q.exp;           // mostra a explicação
+
+      } else {
+        botaoClicado.classList.add('errada');                      // botão fica vermelho
+        todosBotoes[q.certa].classList.add('correta');             // mostra a resposta certa em verde
+        feedback.className = 'quiz-feedback nao show';
+        feedback.textContent = '❌ Não foi dessa vez. ' + q.exp;  // mostra a explicação
+      }
+
+      // Se não é a última pergunta, mostra o botão "Próxima"
+      if (perguntaAtual < perguntas.length - 1) {
+        document.getElementById('btn-proximo').classList.add('show');
+      } else {
+        // Se é a última, mostra o resultado
+        document.getElementById('btn-reiniciar').classList.add('show');
+        mostrarResultado();
+      }
+    }
+
+    // Avança para a próxima pergunta
+    function proximaPergunta() {
+      perguntaAtual++;
+      carregarPergunta();
+    }
+
+    // Mostra a tela de resultado final com emoji e pontuação
+    function mostrarResultado() {
+      setTimeout(function() {  // espera 800ms antes de mostrar (fica mais bonito)
+
+        document.getElementById('quiz-conteudo').style.display = 'none'; // esconde as perguntas
+        const resultado = document.getElementById('quiz-resultado');
+        resultado.classList.add('show'); // mostra a tela de resultado
+
+        // Escolhe o emoji e mensagem dependendo da pontuação
+        const aproveitamento = pontos / perguntas.length;
+        let emoji, mensagem;
+
+        if (aproveitamento === 1) {
+          emoji = '🏆';
+          mensagem = 'Parabéns! Você é um expert em bioenergia!';
+        } else if (aproveitamento >= 0.6) {
+          emoji = '🌱';
+          mensagem = 'Muito bem! Você sabe bastante sobre o tema!';
+        } else {
+          emoji = '📚';
+          mensagem = 'Continue estudando! A bioenergia tem muito a ensinar.';
+        }
+
+        document.getElementById('resultado-emoji').textContent = emoji;
+        document.getElementById('resultado-texto').textContent = mensagem;
+        document.getElementById('resultado-pts').textContent =
+          `Você acertou ${pontos} de ${perguntas.length} perguntas.`;
+
+      }, 800);
+    }
+
+    // Reinicia o quiz do zero
+    function reiniciarQuiz() {
+      perguntaAtual = 0;
+      pontos = 0;
+      document.getElementById('quiz-resultado').classList.remove('show'); // esconde resultado
+      document.getElementById('quiz-conteudo').style.display = 'block';   // mostra perguntas
+      carregarPergunta(); // carrega a primeira pergunta de novo
+    }
+
+    // Inicia o quiz assim que a página carrega
+    carregarPergunta();
+
+
+    // ============================================================
+    // ANIMAÇÃO DE APARECER AO ROLAR A PÁGINA
+    // Cada elemento com a classe "aparecer" fica invisível no início.
+    // Quando o usuário rola a página e o elemento fica visível na tela,
+    // adicionamos a classe "visivel" — aí o CSS faz ele aparecer suavemente.
+    // ============================================================
+
+    // Pega todos os elementos que precisam aparecer ao rolar
+    const elementosParaAnibar = document.querySelectorAll('.aparecer');
+
+    // IntersectionObserver: uma ferramenta do navegador que avisa quando
+    // um elemento entra ou sai da área visível da tela
+    const observador = new IntersectionObserver(function(entradas) {
+      entradas.forEach(function(entrada, indice) {
+        if (entrada.isIntersecting) {
+          // O elemento entrou na tela! Adiciona a classe "visivel" com um pequeno atraso
+          setTimeout(function() {
+            entrada.target.classList.add('visivel');
+          }, indice * 80); // atraso escalonado: cada elemento aparece um pouquinho depois do anterior
+
+          observador.unobserve(entrada.target); // para de observar (já apareceu, não precisa mais)
+        }
+      });
+    }, { threshold: 0.1 }); // 0.1 = dispara quando 10% do elemento está visível
+
+    // Manda o observador vigiar cada elemento
+    elementosParaAnibar.forEach(function(el) {
+      observador.observe(el);
+    });
+
+  </script>
 
 </body>
-
-
 </html>
