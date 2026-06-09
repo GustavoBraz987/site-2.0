@@ -50,13 +50,15 @@ nav {
   gap: 0.75rem;
 }
 
-/* A foto da logo fica redonda por causa do border-radius */
+/* foto da logo */
 .logo-foto {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  object-fit: cover;
+  background-color: var(--branco); 
+  object-fit: contain; 
   border: 2px solid var(--amarelo);
+  display: block;
 }
 
 /* Texto do nome */
