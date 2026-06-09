@@ -59,8 +59,8 @@ nav {
   border: 2px solid var(--amarelo);
 }
 
-/* Texto do nome do autor */
-.logo-nome {
+/* Texto do nome */
+.logo-nome { 
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;
   color: var(--amarelo);
