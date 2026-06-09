@@ -309,7 +309,7 @@ nav {
 }
 
 
-/* ESTILO GERAL DE TODAS AS SEÇÕES */
+/* ESTILOS GERAIS DAS SEÇÕES */
 
 /* Espaçamento interno de cada seção */
 section { padding: 6rem 5rem; }
@@ -550,7 +550,7 @@ section { padding: 6rem 5rem; }
 
 .inov-card p { font-size: 0.93rem; color: rgba(255,255,255,0.72); line-height: 1.75; }
 
-/* Etiqueta verde "Destaque Paraná" */
+/* Etiqueta verde Destaque Paraná */
 .parana-badge {
   display: inline-flex;
   align-items: center;
@@ -599,7 +599,7 @@ section { padding: 6rem 5rem; }
   transition: width 0.5s ease;
 }
 
-/* Contador "1 / 5" */
+/* Contador de perguntas */
 .quiz-count { font-family: 'Space Mono', monospace; font-size: 0.78rem; color: #888; white-space: nowrap; }
 
 /* Texto da pergunta */
@@ -698,7 +698,7 @@ section { padding: 6rem 5rem; }
   margin: 0 auto;
 }
 
-/* Cada card de curiosity */
+/* Cada card de curiosidade */
 .sabia-card {
   display: flex; gap: 1.2rem; align-items: flex-start;
   padding: 1.2rem 1.5rem;
@@ -759,7 +759,7 @@ section { padding: 6rem 5rem; }
 /* Animação do hero vindo de cima para baixo */
 @keyframes aparecer {
   from { opacity: 0; transform: translateY(-16px); }
-    to   { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Animação do visual do hero vindo da direita */
