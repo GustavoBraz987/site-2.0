@@ -13,16 +13,10 @@
 }
 
 /* Zera as margens */
-* { 
-  margin: 0; 
-  padding: 0; 
-  box-sizing: border-box; 
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* Faz a página rolar ao clicar nos botões */
-html { 
-  scroll-behavior: smooth; 
-}
+html { scroll-behavior: smooth; }
 
 /* Fonte e cor padrão de tudo na página */
 body {
@@ -104,9 +98,7 @@ nav {
 }
 
 /* Quando passa o mouse o botão fica amarelo */
-.nav-links a:hover { 
-  color: var(--amarelo); 
-}
+.nav-links a:hover { color: var(--amarelo); }
 
 
 /* SEÇÃO INICIAL (HERO) */
@@ -134,10 +126,7 @@ nav {
 }
 
 /* Lado esquerdo com o texto principal */
-.hero-text { 
-  position: relative; 
-  z-index: 2; 
-}
+.hero-text { position: relative; z-index: 2; }
 
 /* Etiqueta amarela */
 .hero-tag {
@@ -184,7 +173,7 @@ nav {
   animation: aparecer 1s ease 0.2s both;
 }
 
-/* Os dos botões do hero ficam lado a lado */
+/* Os dois botões do hero ficam lado a lado */
 .hero-btns {
   display: flex;
   gap: 1rem;
@@ -230,10 +219,7 @@ nav {
 }
 
 /* Fica amarelo ao passar o mouse */
-.btn-outline:hover { 
-  border-color: var(--amarelo); 
-  color: var(--amarelo); 
-}
+.btn-outline:hover { border-color: var(--amarelo); color: var(--amarelo); }
 
 
 /* VISUAL DO LADO DIREITO DO HERO */
@@ -298,14 +284,10 @@ nav {
 }
 
 /* Cresce um pouco ao passar o mouse */
-.bio-card-mini:hover { 
-  transform: scale(1.08); 
-}
+.bio-card-mini:hover { transform: scale(1.08); }
 
 /* Emoji maior dentro de cada quadradinho */
-.bio-card-mini .mini-emoji { 
-  font-size: 2rem; 
-}
+.bio-card-mini .mini-emoji { font-size: 2rem; }
 
 /* Posição de cada quadradinho nos quatro cantos */
 .bio-card-mini:nth-child(2) { top: 20px; left: 20px; }
@@ -330,9 +312,7 @@ nav {
 /* ESTILO GERAL DE TODAS AS SEÇÕES */
 
 /* Espaçamento interno de cada seção */
-section { 
-  padding: 6rem 5rem; 
-}
+section { padding: 6rem 5rem; }
 
 /* Etiquetinha pequena que aparece antes do título */
 .section-tag {
@@ -382,7 +362,7 @@ section {
   gap: 1.2rem;
 }
 
-/* Cada card de conceito */
+/* Cada card tem uma risca colorida na esquerda */
 .conceito-card {
   background: var(--branco);
   border-left: 4px solid var(--verde-vivo);
@@ -396,9 +376,7 @@ section {
 }
 
 /* Desliza para o lado ao passar o mouse */
-.conceito-card:hover { 
-  transform: translateX(6px); 
-}
+.conceito-card:hover { transform: translateX(6px); }
 
 /* Cada card tem uma cor diferente na borda */
 .conceito-card:nth-child(2) { border-color: var(--amarelo); }
@@ -449,10 +427,7 @@ section {
 .tipo-card.biomassa::before  { background: linear-gradient(90deg, var(--terra), var(--laranja)); }
 
 /* Sobe ao passar o mouse */
-.tipo-card:hover { 
-  background: rgba(255,255,255,0.09); 
-  transform: translateY(-5px); 
-}
+.tipo-card:hover { background: rgba(255,255,255,0.09); transform: translateY(-5px); }
 
 .tipo-emoji { font-size: 2.5rem; margin-bottom: 1rem; }
 .tipo-nome  {
@@ -493,7 +468,6 @@ section {
   margin-top: 3rem;
 }
 
-/* Cada bloco de impacto numérico */
 .impacto-item {
   text-align: center;
   padding: 2.5rem 1.5rem;
@@ -504,9 +478,7 @@ section {
 }
 
 /* Sobe ao passar o mouse */
-.impacto-item:hover { 
-  transform: translateY(-5px); 
-}
+.impacto-item:hover { transform: translateY(-5px); }
 
 /* Número grande em destaque */
 .impacto-numero {
@@ -529,7 +501,6 @@ section {
   gap: 1.2rem;
 }
 
-/* Caixa de cada benefício listado */
 .beneficio {
   display: flex;
   gap: 1rem;
@@ -563,7 +534,6 @@ section {
   margin-top: 3rem;
 }
 
-/* Card individual de inovação */
 .inov-card {
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(76,175,80,0.2);
@@ -580,7 +550,7 @@ section {
 
 .inov-card p { font-size: 0.93rem; color: rgba(255,255,255,0.72); line-height: 1.75; }
 
-/* Etiqueta verde Destaque Paraná */
+/* Etiqueta verde "Destaque Paraná" */
 .parana-badge {
   display: inline-flex;
   align-items: center;
@@ -629,7 +599,7 @@ section {
   transition: width 0.5s ease;
 }
 
-/* Contador de perguntas */
+/* Contador "1 / 5" */
 .quiz-count { font-family: 'Space Mono', monospace; font-size: 0.78rem; color: #888; white-space: nowrap; }
 
 /* Texto da pergunta */
@@ -728,7 +698,7 @@ section {
   margin: 0 auto;
 }
 
-/* Cada card de curiosidade */
+/* Cada card de curiosity */
 .sabia-card {
   display: flex; gap: 1.2rem; align-items: flex-start;
   padding: 1.2rem 1.5rem;
@@ -789,7 +759,7 @@ section {
 /* Animação do hero vindo de cima para baixo */
 @keyframes aparecer {
   from { opacity: 0; transform: translateY(-16px); }
-  to   { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Animação do visual do hero vindo da direita */
