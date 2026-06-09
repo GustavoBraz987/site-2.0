@@ -1,4 +1,4 @@
-/* Aqui ficam as cores do site, mude esses valores para trocar o visual todo */
+/* cor site*/
 :root {
   --verde-escuro: #1a3a1f;
   --verde-medio: #2d6a35;
@@ -12,10 +12,10 @@
   --texto: #1a2b1c;
 }
 
-/* Zera as margens e bordas que o navegador coloca por padrão */
+/* Zera as margens */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Faz a página rolar de forma suave ao clicar nos links do menu */
+/* Faz a página rolar ao clicar nos botões */
 html { scroll-behavior: smooth; }
 
 /* Fonte e cor padrão de tudo na página */
@@ -29,7 +29,7 @@ body {
 
 /* MENU DE NAVEGAÇÃO */
 
-/* O menu fica fixo no topo da tela, mesmo ao rolar a página */
+/* O menu fica fixo */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -79,14 +79,14 @@ nav {
   letter-spacing: 0.08em;
 }
 
-/* Os links do menu em linha */
+/* Os botões do menu em linha */
 .nav-links {
   display: flex;
   gap: 2.5rem;
   list-style: none;
 }
 
-/* Estilo dos links do menu */
+/* Estilo dos botões do menu */
 .nav-links a {
   color: var(--verde-claro);
   text-decoration: none;
@@ -97,7 +97,7 @@ nav {
   transition: color 0.3s;
 }
 
-/* Quando passa o mouse o link fica amarelo */
+/* Quando passa o mouse o botão fica amarelo */
 .nav-links a:hover { color: var(--amarelo); }
 
 
@@ -115,7 +115,7 @@ nav {
   overflow: hidden;
 }
 
-/* Brilho de fundo decorativo, feito só com CSS */
+/* Brilho de fundo decorativo */
 .hero::before {
   content: '';
   position: absolute; inset: 0;
@@ -125,10 +125,10 @@ nav {
   pointer-events: none;
 }
 
-/* Coluna da esquerda com o texto principal */
+/* Lado esquerdo com o texto principal */
 .hero-text { position: relative; z-index: 2; }
 
-/* A etiquetinha amarela no topo do título */
+/* Etiqueta amarela */
 .hero-tag {
   display: inline-block;
   background: var(--amarelo);
