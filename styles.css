@@ -67,6 +67,10 @@ nav {
   display: block;
 }
 
+
+.gustavo {
+  color: white;
+}
 /* Texto do nome */
 .logo-nome { 
   font-family: 'Playfair Display', serif;
