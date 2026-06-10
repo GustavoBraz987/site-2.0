@@ -68,9 +68,7 @@ nav {
 }
 
 
-.gustavo {
-  color: white;
-}
+
 /* Texto do nome */
 .logo-nome { 
   font-family: 'Playfair Display', serif;
@@ -172,7 +170,7 @@ nav {
 
 /* A parte do título que fica em verde */
 .hero h1 em {
-  color: var(--verde-vivo);
+  color: white;
   font-style: normal;
   display: block;
 }
