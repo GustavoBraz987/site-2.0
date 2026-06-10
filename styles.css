@@ -207,7 +207,7 @@ nav {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* Sobe um pouquinho e aparece sombra ao passar o mouse */
+/* sombra */
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(245,197,24,0.4);
