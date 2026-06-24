@@ -1,4 +1,4 @@
- /* COR SITE */
+/* COR SITE */
 :root {
   --verde-escuro: #1a3a1f;
   --verde-medio: #2d6a35;
@@ -13,15 +13,15 @@
 }
 
 /* Zera as margens */
-* { 
-  margin: 0; 
-  padding: 0; 
-  box-sizing: border-box; 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Faz a página rolar ao clicar nos botões */
-html { 
-  scroll-behavior: smooth; 
+html {
+  scroll-behavior: smooth;
 }
 
 /* Fonte e cor padrão de tudo na página */
@@ -45,7 +45,6 @@ nav {
   justify-content: space-between;
   padding: 1rem 4rem;
   background: rgba(26, 58, 31, 0.97);
-  backdrop-filter: blur(8px);
   border-bottom: 2px solid var(--amarelo);
 }
 
@@ -61,16 +60,14 @@ nav {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: var(--branco); 
-  object-fit: contain; 
+  background-color: var(--branco);
+  object-fit: contain;
   border: 2px solid var(--amarelo);
   display: block;
 }
 
-
-
 /* Texto do nome */
-.logo-nome { 
+.logo-nome {
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;
   color: var(--amarelo);
@@ -106,8 +103,8 @@ nav {
 }
 
 /* Quando passa o mouse o botão fica amarelo */
-.nav-links a:hover { 
-  color: var(--amarelo); 
+.nav-links a:hover {
+  color: var(--amarelo);
 }
 
 
@@ -125,20 +122,10 @@ nav {
   overflow: hidden;
 }
 
-/* Brilho de fundo decorativo */
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse at 75% 35%, rgba(76,175,80,0.15) 0%, transparent 55%),
-    radial-gradient(ellipse at 15% 80%, rgba(232,130,26,0.10) 0%, transparent 45%);
-  pointer-events: none;
-}
-
 /* Lado esquerdo com o texto principal */
-.hero-text { 
-  position: relative; 
-  z-index: 2; 
+.hero-text {
+  position: relative;
+  z-index: 2;
 }
 
 /* Etiqueta amarela */
@@ -168,7 +155,7 @@ nav {
   animation: aparecer 0.9s ease 0.1s both;
 }
 
-/* A parte do título que fica em verde */
+/* A parte do título que fica em branco */
 .hero h1 em {
   color: white;
   font-style: normal;
@@ -186,7 +173,7 @@ nav {
   animation: aparecer 1s ease 0.2s both;
 }
 
-/* Os dos botões do hero ficam lado a lado */
+/* Os dois botões do hero ficam lado a lado */
 .hero-btns {
   display: flex;
   gap: 1rem;
@@ -206,13 +193,6 @@ nav {
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-/* sombra */
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(245,197,24,0.4);
 }
 
 /* Botão só com borda, fundo transparente */
@@ -232,9 +212,9 @@ nav {
 }
 
 /* Fica amarelo ao passar o mouse */
-.btn-outline:hover { 
-  border-color: var(--amarelo); 
-  color: var(--amarelo); 
+.btn-outline:hover {
+  border-color: var(--amarelo);
+  color: var(--amarelo);
 }
 
 
@@ -257,12 +237,11 @@ nav {
   height: 380px;
 }
 
-/* Círculo grande de fundo com brilho verde */
+/* Círculo grande de fundo */
 .bio-circulo {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: radial-gradient(circle at 40% 40%, rgba(76,175,80,0.2), transparent 70%);
   border: 1px solid rgba(76,175,80,0.2);
 }
 
@@ -278,7 +257,6 @@ nav {
   align-items: center;
   justify-content: center;
   font-size: 3.2rem;
-  box-shadow: 0 0 50px rgba(76,175,80,0.5);
 }
 
 /* Os 4 quadradinhos que ficam nos cantos */
@@ -296,17 +274,11 @@ nav {
   color: var(--verde-claro);
   font-family: 'Space Mono', monospace;
   font-size: 0.6rem;
-  transition: transform 0.3s;
-}
-
-/* Cresce um pouco ao passar o mouse */
-.bio-card-mini:hover { 
-  transform: scale(1.08); 
 }
 
 /* Emoji maior dentro de cada quadradinho */
-.bio-card-mini .mini-emoji { 
-  font-size: 2rem; 
+.bio-card-mini .mini-emoji {
+  font-size: 2rem;
 }
 
 /* Posição de cada quadradinho nos quatro cantos */
@@ -332,8 +304,8 @@ nav {
 /* ESTILO GERAL DE TODAS AS SEÇÕES */
 
 /* Espaçamento interno de cada seção */
-section { 
-  padding: 6rem 5rem; 
+section {
+  padding: 6rem 5rem;
 }
 
 /* Etiquetinha pequena que aparece antes do título */
@@ -387,24 +359,13 @@ section {
 /* Cada card de conceito */
 .conceito-card {
   background: var(--branco);
-  border-left: 4px solid var(--verde-vivo);
-  border-radius: 0 8px 8px 0;
+  border-radius: 8px;
   padding: 1.4rem 1.6rem;
   display: flex;
   gap: 1rem;
   align-items: flex-start;
   box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-  transition: transform 0.25s;
 }
-
-/* Desliza para o lado ao passar o mouse */
-.conceito-card:hover { 
-  transform: translateX(6px); 
-}
-
-/* Cada card tem uma cor diferente na borda */
-.conceito-card:nth-child(2) { border-color: var(--amarelo); }
-.conceito-card:nth-child(3) { border-color: var(--laranja); }
 
 .card-icon  { font-size: 2rem; flex-shrink: 0; }
 .card-title { font-weight: 700; color: var(--verde-escuro); margin-bottom: 0.3rem; font-size: 1rem; }
@@ -433,27 +394,6 @@ section {
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 12px;
   padding: 2rem 1.5rem;
-  transition: all 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Faixinha colorida no topo de cada card */
-.tipo-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 3px;
-}
-
-/* Cada tipo tem uma cor diferente na faixa do topo */
-.tipo-card.etanol::before    { background: linear-gradient(90deg, var(--verde-vivo), var(--amarelo)); }
-.tipo-card.biodiesel::before { background: linear-gradient(90deg, var(--amarelo), var(--laranja)); }
-.tipo-card.biogas::before    { background: linear-gradient(90deg, var(--laranja), #c0392b); }
-.tipo-card.biomassa::before  { background: linear-gradient(90deg, var(--terra), var(--laranja)); }
-
-/* Sobe ao passar o mouse */
-.tipo-card:hover { 
-  background: rgba(255,255,255,0.09); 
-  transform: translateY(-5px); 
 }
 
 .tipo-emoji { font-size: 2.5rem; margin-bottom: 1rem; }
@@ -502,12 +442,6 @@ section {
   border-radius: 12px;
   background: var(--creme);
   border: 1px solid rgba(76,175,80,0.12);
-  transition: transform 0.3s;
-}
-
-/* Sobe ao passar o mouse */
-.impacto-item:hover { 
-  transform: translateY(-5px); 
 }
 
 /* Número grande em destaque */
@@ -550,7 +484,7 @@ section {
 
 /* Fundo verde bem escuro nessa seção */
 #inovacoes {
-  background: linear-gradient(135deg, #1a3a1f 0%, #0d2210 100%);
+  background: var(--verde-escuro);
   color: var(--branco);
 }
 
@@ -736,12 +670,8 @@ section {
   padding: 1.2rem 1.5rem;
   background: var(--branco);
   border-radius: 10px;
-  border-left: 5px solid var(--verde-vivo);
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
-
-/* Alterna a cor da borda nos cards pares */
-.sabia-card:nth-child(even) { border-color: var(--amarelo); }
 
 .sabia-icon { font-size: 1.8rem; flex-shrink: 0; }
 .sabia-text { font-size: 0.9rem; color: #3a5c3d; line-height: 1.65; }
